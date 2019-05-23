@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-    has_many :role_tags, as: :role_relation
     has many :posts, dependent: :destroy
     has_many :follows, dependent: :destroy
 
