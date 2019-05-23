@@ -1,3 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :posts
+      resource :follow, only: [:create, :destroy]
+      resource :session, only: [:create, :destroy]
+      resources :users, only: [:create, :update] do
+        resource :profile, only: [:create, :update]
+        get :current, on: :collection
+        
+      end
+    end
+  end
 end
