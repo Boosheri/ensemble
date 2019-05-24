@@ -1,8 +1,9 @@
 class Role < ApplicationRecord
-    has_many :role_tags, dependent: :destroy
+    has_many :profile_roles, dependent: :destroy
+    has_many :post_roles, dependent: :destroy
     
     validates(:title, presence: true, uniqueness: true)
-    
+
     def role_titles
         self.roles.map{ |r| r.name }.join(", ")
     end

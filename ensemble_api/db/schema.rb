@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_23_020654) do
+ActiveRecord::Schema.define(version: 2019_05_24_014125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(version: 2019_05_23_020654) do
     t.index ["user_id"], name: "index_follows_on_user_id"
   end
 
+  create_table "post_roles", force: :cascade do |t|
+    t.bigint "role_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_post_roles_on_post_id"
+    t.index ["role_id"], name: "index_post_roles_on_role_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -82,6 +91,15 @@ ActiveRecord::Schema.define(version: 2019_05_23_020654) do
     t.index ["post_id"], name: "index_productions_on_post_id"
   end
 
+  create_table "profile_roles", force: :cascade do |t|
+    t.bigint "role_id"
+    t.bigint "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_profile_roles_on_profile_id"
+    t.index ["role_id"], name: "index_profile_roles_on_role_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.text "about"
     t.date "birth_date"
@@ -92,15 +110,6 @@ ActiveRecord::Schema.define(version: 2019_05_23_020654) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
-  end
-
-  create_table "role_tags", force: :cascade do |t|
-    t.integer "tagable_id"
-    t.string "tagable_type"
-    t.bigint "role_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["role_id"], name: "index_role_tags_on_role_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -122,8 +131,11 @@ ActiveRecord::Schema.define(version: 2019_05_23_020654) do
   add_foreign_key "auditions", "posts"
   add_foreign_key "follows", "posts"
   add_foreign_key "follows", "users"
+  add_foreign_key "post_roles", "posts"
+  add_foreign_key "post_roles", "roles"
   add_foreign_key "posts", "users"
   add_foreign_key "productions", "posts"
+  add_foreign_key "profile_roles", "profiles"
+  add_foreign_key "profile_roles", "roles"
   add_foreign_key "profiles", "users"
-  add_foreign_key "role_tags", "roles"
 end
