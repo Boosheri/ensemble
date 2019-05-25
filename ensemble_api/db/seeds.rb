@@ -1,11 +1,11 @@
 PASSWORD = "supersecret"
-# PostRole.delete_all
-# ProfileRole.delete_all
-Role.delete_all
-Follow.delete_all
-Post.delete_all
-Profile.delete_all
-User.delete_all
+PostRole.destroy_all
+ProfileRole.destroy_all
+Role.destroy_all
+Follow.destroy_all
+Post.destroy_all
+Profile.destroy_all
+User.destroy_all
 
 super_user = User.create(
   first_name: "Jon",
@@ -14,7 +14,15 @@ super_user = User.create(
   password: PASSWORD
 )
 
-10.times do
+20.times do
+	Role.create(
+	title: Faker::Job.position
+	)
+end
+
+roles = Role.all
+
+20.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
 	u = User.create(
@@ -22,79 +30,61 @@ super_user = User.create(
     last_name: last_name,
     email: "#{first_name.downcase}.#{last_name.downcase}@example.com",
 		password: PASSWORD,
+
 		profile_attributes: { 
 			about: Faker::GreekPhilosophers.quote,
-      birth_date: Faker::Date,
-      gender: rand(0..6)
+      birth_date: Faker::Date.backward(365 * 100),
+			gender: rand(0..6),
+			user: u
 		}
-  )
-# 	if u.valid?
-#     p = Profile.create(
-# 			about: Faker::GreekPhilosophers.quote,
-#       birth_date: Faker::Date,
-#       gender: rand(0..6),
-# 			user_id: u.id
-# 		)
-# # puts(p.user.first_name)
-# # puts(p.valid?)
-# # p.save
-# 	end
+	)
+
+	if u.valid?
+		u.profile.roles = roles.shuffle.slice(0, rand(roles.count / 2))
+	end
 
 end
 
 users = User.all
 profiles = Profile.all
-		
+profile_roles = ProfileRole.all
+
+50.times do
+	first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+	created_at = Faker::Date.backward(365 * 5)
+	p = Post.create(
+	title: Faker::Job.title,
+	body: Faker::Marketing.buzzwords,
+	gender: rand(0..6),
+	min_age: rand(0..50),
+	max_age: rand(20..100),
+	paid: Faker::Boolean.boolean,
+	union: Faker::Boolean.boolean,
+	production_type: Faker::Company.type,
+	company: Faker::Company.name,
+	created_at: created_at,
+	contact_name: "#{first_name} #{last_name}",
+	contact_email: "#{first_name.downcase}.#{last_name.downcase}@example.com",
+	user_id: users.sample.id,
+	)
+	if p.valid?
+		p.roles = roles.shuffle.slice(0, rand(roles.count / 2))
+		p.followers = users.shuffle.slice(0, rand(users.count))
+	end
+
+end
+
+posts = Post.all
+post_roles = PostRole.all
+follows = Follow.all
+
+puts("Generated #{ roles.count } roles")
 puts("Generated #{ users.count } users")
 puts("Generated #{ profiles.count } profiles")
+puts("Generated #{ profile_roles.count } profile roles")
+puts("Generated #{ post_roles.count } post roles")
+puts("Generated #{ posts.count } posts")
+puts("Generated #{ follows.count } follows")
 puts("Login with #{super_user.email} and password: #{PASSWORD}")
 
-
-	
-# q.answers = rand(0..15).times.map do
-# 	Answer.new(body: Faker::GreekPhilosophers.quote, user: users.sample)
-# end
-
-# q.follows = users.shuffle.slice(0, rand(users.count))
-# q.role = role.shuffle.slice(0, rand(role.count / 2))
-# end
-# end
-
-
-# 20.times do
-# Role.create(
-# title: Faker::Book.genre
-# )
-# end
-
-# role = Role.all
-
-# 200.times do
-# created_at = Faker::Date.backward(365 * 5)
-# p = Post.create(
-# title: Faker::Hacker.say_something_smart,
-# body: Faker::ChuckNorris.fact,
-# view_count: rand(100_000),
-# created_at: created_at,
-# updated_at: created_at,
-# contact_person: "#{first_name} #{last_name.}"
-# contact_email: "#{first_name.downcase}.#{last_name.downcase}@example.com",
-# user: users.sample
-# )
-
-# if q.valid?
-# q.answers = rand(0..15).times.map do
-# 	Answer.new(body: Faker::GreekPhilosophers.quote, user: users.sample)
-# end
-
-# q.follows = users.shuffle.slice(0, rand(users.count))
-# q.role = role.shuffle.slice(0, rand(role.count / 2))
-# end
-# end
-
-# questions = Question.all
-# answers = Answer.all
-
-# puts Cowsay.say("Generated #{ questions.count } questions", :ghostbusters)
-# puts Cowsay.say("Generated #{ answers.count } answers", :stegosaurus)
-# puts Cowsay.say("Generated #{ tags.count } tags", :moose)
