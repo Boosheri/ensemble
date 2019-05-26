@@ -8,6 +8,7 @@ class UserSerializer < ActiveModel::Serializer
   :full_name,
   :updated_at,
   :created_at,
+  :profile,
   :headshot
   )
 

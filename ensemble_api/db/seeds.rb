@@ -14,17 +14,59 @@ super_user = User.create(
   password: PASSWORD
 )
 
-20.times do
+roleList = [
+	"Producer",
+	"Director",
+	"Screenwriter",
+	"Production Designer",
+	"Art Director",
+	"Costume Designer",
+	"Cinematographer",
+	"Editor",
+	"Actor",
+	"Musician",
+	"Music Supervisor",
+	"Sound technician",
+	"Location manager",
+	"Lighting technician",
+	"Runner",
+	"Playwright",
+	"Scenic designer",
+	"Lighting designer",
+	"Costume designer",
+	"Set designer",
+	"Sound designer",
+	"Dancer",
+	"Background Actors",
+	"Composer",
+	"Front of house manager",
+	"Stage manager",
+	"Theatrical technician",
+	"Technical director",
+	"Stagehand",
+	"Dramaturg",
+	"Grips"
+]
+
+roleList.map{|r|
 	Role.create(
-	title: Faker::Job.position
+		title: r
 	)
-end
+}
 
 roles = Role.all
 
+gender = [
+	"Female",
+	"Male",
+	"Non Binary",
+	"Trans Female",
+	"Trans Male"
+]
+
 20.times do
   first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
+	last_name = Faker::Name.last_name
 	u = User.create(
     first_name: first_name,
     last_name: last_name,
@@ -34,7 +76,7 @@ roles = Role.all
 		profile_attributes: { 
 			about: Faker::GreekPhilosophers.quote,
       birth_date: Faker::Date.backward(365 * 100),
-			gender: rand(0..6),
+			gender: gender.sample,
 			user: u
 		}
 	)
@@ -49,19 +91,31 @@ users = User.all
 profiles = Profile.all
 profile_roles = ProfileRole.all
 
+productions =[
+	"Theatre",
+	"Dance",
+	"Short Film",
+	"Feature Film",
+	"Student Film",
+	"Music Video",
+	"Performnce Art",
+]
+
 50.times do
 	first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
+	last_name = Faker::Name.last_name
 	created_at = Faker::Date.backward(365 * 5)
+	min_age = rand(0..50)
+	max_age = min_age+10
 	p = Post.create(
 	title: Faker::Job.title,
 	body: Faker::Marketing.buzzwords,
-	gender: rand(0..6),
-	min_age: rand(0..50),
-	max_age: rand(20..100),
+	gender: gender.sample,
+	min_age: min_age,
+	max_age: max_age,
 	paid: Faker::Boolean.boolean,
 	union: Faker::Boolean.boolean,
-	production_type: Faker::Company.type,
+	production_type: productions.sample,
 	company: Faker::Company.name,
 	created_at: created_at,
 	contact_name: "#{first_name} #{last_name}",

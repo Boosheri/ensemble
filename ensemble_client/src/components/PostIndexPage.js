@@ -48,7 +48,11 @@ export class PostIndexPage extends Component {
                 Delete
             </button> */}
             </h3>
-            <p>{post.production_type}</p>
+            <p>Prodution Type: {post.production_type}</p>
+            <p>Gender: {post.gender}</p>
+            <p>Aged: {post.min_age} - {post.max_age}</p>
+            <p>Roles:</p> {post.roles.map(role => <p>{role.title}</p>)}
+
             </li>
           ))}
         </ul>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_24_014125) do
+ActiveRecord::Schema.define(version: 2019_05_25_014541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2019_05_24_014125) do
     t.string "title"
     t.text "body"
     t.string "production_type"
-    t.integer "gender"
+    t.string "gender"
     t.integer "min_age"
     t.integer "max_age"
     t.boolean "paid"
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 2019_05_24_014125) do
   create_table "profiles", force: :cascade do |t|
     t.text "about"
     t.date "birth_date"
-    t.integer "gender"
+    t.string "gender"
     t.string "languages"
     t.string "skills"
     t.datetime "created_at", null: false
