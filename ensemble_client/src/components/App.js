@@ -2,11 +2,15 @@ import React, { Component } from "react"
 // import logo from '../logo.svg';
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 import { PostIndexPage } from "./PostIndexPage"
+import { PostNewPage } from "./PostNewPage"
+import { PostShowPage } from "./PostShowPage"
+import { PostEditPage } from "./PostEditPage"
 import { MyPostsPage } from "./MyPostsPage"
 import { WelcomePage } from "./WelcomePage"
 import { NavBar } from "./NavBar"
 import { SignInPage } from "./SignInPage"
 import { SignUpPage } from "./SignUpPage"
+import { UserEditPage } from "./UserEditPage"
 import { User } from "../api/user"
 import { AuthRoute } from "./AuthRoute"
 
@@ -35,6 +39,7 @@ class App extends Component {
         this.setState({ loading: false })
       })
   }
+  
   signOut = () => {
     this.setState({
       currentUser: null,
@@ -79,7 +84,28 @@ class App extends Component {
               )}
             />
             <Route exact path="/posts" component={PostIndexPage} />
-
+            <AuthRoute
+              isAuthenticated={!!this.state.currentUser}
+              exact
+              path="/posts/new"
+              component={PostNewPage}
+            />
+            <AuthRoute
+              isAuthenticated={!!this.state.currentUser}
+              path="/posts/:id/edit"
+              render={PostEditPage}
+            />
+            <AuthRoute
+              isAuthenticated={!!this.state.currentUser}
+              path="/users/:id/edit"
+              render={routeProps => (
+                <UserEditPage
+                  {...routeProps}
+                  onUserUpdate={this.getCurrentUser}
+                />
+              )}
+            />
+            <Route exact path="/posts/:id" component={PostShowPage} />
             </Switch>
         </div>
       </BrowserRouter>

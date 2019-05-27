@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { PostDetails } from "./PostDetails";
 import { Post } from "../api/post";
+import { Link } from "react-router-dom";
 
 export class PostShowPage extends Component {
   constructor(props) {
@@ -45,24 +46,10 @@ export class PostShowPage extends Component {
     return (
       <main className="Page">
         <PostDetails {...this.state.post} />
-
         <div>
-          {/* <Link to={`/posts/${this.state.post.id}/edit`}>Edit</Link> */}
-          <PrimaryButton
-            text="Edit"
-            iconProps={{ iconName: "edit" }}
-            onClick={() =>
-              this.props.history.push(
-                `/posts/${this.state.post.id}/edit`
-              )
-            }
-          />
-
-          <PrimaryButton
-            text="Delete"
-            iconProps={{ iconName: "delete" }}
-            onClick={this.deletePost}
-          />
+        <button onClick={() => this.props.history.push(
+            `{/posts/${this.state.post.id}/edit}`)}>Edit</button>
+          <button onClick={() => this.deletePost()}>Delete</button>
         </div>
 
       </main>

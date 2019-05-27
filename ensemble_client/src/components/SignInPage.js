@@ -35,5 +35,3 @@ export function SignInPage(props) {
     </main>
   );
 }
-
-// export default SignInPage;

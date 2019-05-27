@@ -8,45 +8,57 @@ export function NavBar(props) {
     event.preventDefault()
 
     Session.destroy().then(() => {
-      // ... do something after we destroy session
       onSignOut()
     })
   }
 
   return (
     <nav className="NavBar">
-    <ul class="menu"><li>
-      <NavLink exact to="/">
-        Welcome
-      </NavLink></li><li>
-      <NavLink exact to="/posts">
-        Posts
-      </NavLink></li>
-      {currentUser ? (
+    <ul class="menu">
+        <li>
+        <NavLink exact to="/">
+            Welcome
+        </NavLink>
+        </li>
+        <li>
+        <NavLink exact to="/posts">
+            Posts
+        </NavLink>
+        </li>
+        {currentUser ? (
         <React.Fragment>
         <li>
           <NavLink exact to="/posts/new">
             Post
-          </NavLink></li>
-<li>
-          <NavLink exact to="/my_posts">
+          </NavLink>
+        </li>
+        <li>
+        <NavLink exact to="/my_posts">
             My Posts
-          </NavLink></li>
+        </NavLink>
+        </li>
 
-         <li> <a onClick={handleSignout}>Sign Out</a></li>
-<li>
+        <li>
+            <a onClick={handleSignout}>Sign Out</a>
+        </li>
+        <li>
           <NavLink exact to={`/users/${currentUser.id}/edit`}>
             {currentUser.full_name}
-          </NavLink></li>
+          </NavLink>
+        </li>
         </React.Fragment>
-      ) : (
+        ) : (
         <>
+        <li>
           <NavLink exact to="/sign_in">
             Sign In
           </NavLink>
+        </li>
+        <li>
           <NavLink exact to="/sign_up">
             Sign Up
           </NavLink>
+        </li>
         </>
       )}
       </ul>
