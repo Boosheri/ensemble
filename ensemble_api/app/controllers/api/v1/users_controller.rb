@@ -1,6 +1,6 @@
 class Api::V1::UsersController < Api::ApplicationController
 	
-	before_action :authenticate_user!, only: [ :current, :update ]
+	before_action :authenticate_user!, only: [ :current, :update, ]
 
 	def current
 		render json: current_user

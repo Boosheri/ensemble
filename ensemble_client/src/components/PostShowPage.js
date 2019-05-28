@@ -23,9 +23,6 @@ export class PostShowPage extends Component {
   }
 
   deletePost = () => {
-    // <-- Instance method (Method on `this`)
-    // This is for less efficient, only use when the method must
-    // be passed as a callback and `this` is needed.
     if (window.confirm("Are you sure?")) {
       Post.delete(this.state.post.id).then(data => {
         this.props.history.push(`/posts`);

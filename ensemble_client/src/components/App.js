@@ -30,6 +30,7 @@ class App extends Component {
   getCurrentUser = () => {
     return User.current()
       .then(user => {
+        console.log(user)
         if (user.id) {
           this.setState({ currentUser: user })
         }
@@ -39,7 +40,7 @@ class App extends Component {
         this.setState({ loading: false })
       })
   }
-  
+
   signOut = () => {
     this.setState({
       currentUser: null,
@@ -76,14 +77,13 @@ class App extends Component {
                 <SignUpPage {...routeProps} onSignUp={this.getCurrentUser} />
               )}
             />
-            <Route
+            <Route exact path="/posts" component={PostIndexPage} />
+            <AuthRoute
+              isAuthenticated={!!this.state.currentUser}
               exact
               path="/my_posts"
-              render={routeProps => (
-                <MyPostsPage {...routeProps} component={MyPostsPage} />
-              )}
-            />
-            <Route exact path="/posts" component={PostIndexPage} />
+              component={MyPostsPage} 
+              />             
             <AuthRoute
               isAuthenticated={!!this.state.currentUser}
               exact

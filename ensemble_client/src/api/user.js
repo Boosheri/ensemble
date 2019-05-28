@@ -4,8 +4,12 @@ export const User = {
   current() {
     return fetch(`${BASE_URL}/users/current`, {
       credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     }).then((res) => res.json());
   },
+
   create(params) {
     return fetch(`${BASE_URL}/users`, {
       method: 'POST',

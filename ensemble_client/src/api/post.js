@@ -13,6 +13,24 @@ export const Post = {
     const post = await res.json();
     return post;
   },
+   async user(id) {
+    return fetch(`${BASE_URL}/my_posts/`, {
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+        },
+        }).then((res) => res.json());
+    },
+
+  current() {
+    return fetch(`${BASE_URL}/users/current`, {
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then((res) => res.json());
+  },
+
   create(params) {
     return fetch(`${BASE_URL}/posts`, {
       method: "POST",

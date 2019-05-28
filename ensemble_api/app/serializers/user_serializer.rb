@@ -9,7 +9,7 @@ class UserSerializer < ActiveModel::Serializer
   :updated_at,
   :created_at,
   :profile,
-  :headshot
+  # :headshot
   )
 
   def headshot

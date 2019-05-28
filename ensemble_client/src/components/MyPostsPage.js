@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Post } from "../api/post";
-import { user } from "../api/user";
+import { User } from "../api/user";
 
 export class MyPostsPage extends Component {
   state = {
@@ -9,25 +9,18 @@ export class MyPostsPage extends Component {
   };
 
   componentDidMount() {
-    Post.all().then(posts => {
+    Post.user().then(posts => {
       this.setState({ posts });
     });
 }
 
-
-  // deletepost(id) {
-  //   // To change state in a React component, you must use the
-  //   // `setState()` method on `this`. It takes an object that gets
-  //   // merged in the current state at React's convenience.
-  //   // The properties in `setState()` replace the same name properties
-  //   // in the current state.
-  //   // This happens asynchronously and will eventually trigger an update
-  //   // to the DOM if there's any change.
-
-  //   this.setState({
-  //     posts: this.state.posts.filter(q => q.id !== id)
-  //   });
-  // }
+  deletePost = (id) => {
+    if (window.confirm("Are you sure?")) {
+      Post.delete(this.state.post.id).then(data => {
+        this.props.history.push(`/posts`);
+      });
+    }
+  };
 
   render() {
     return (
@@ -42,10 +35,11 @@ export class MyPostsPage extends Component {
           {this.state.posts.map(post => (
             <li key={post.id}>
               <Link to={`/posts/${post.id}`}>{post.title}</Link>{" "}
-              {/* buttonNode.addEventListener("click", event => ...) */}
-              {/* <button onClick={() => this.deletepost(post.id)}>
-                Delete
-              </button> */}
+              <div>
+                <button onClick={() => this.props.history.push(
+                    `{/posts/${this.state.post.id}/edit}`)}>Edit</button>
+                  <button onClick={() => this.deletePost()}>Delete</button>
+                </div>
             </li>
           ))}
         </ul>
