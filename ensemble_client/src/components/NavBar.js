@@ -22,14 +22,14 @@ export function NavBar(props) {
         </li>
         <li>
         <NavLink exact to="/posts">
-            Posts
+            All Posts
         </NavLink>
         </li>
         {currentUser ? (
         <React.Fragment>
         <li>
           <NavLink exact to="/posts/new">
-            Post
+            New Post
           </NavLink>
         </li>
         <li>

@@ -1,8 +1,9 @@
 class Api::V1::PostsController < Api::ApplicationController
 
-    before_action :authenticate_user!, only: [ :create, :update, :destroy, :my_posts ]
+    before_action :authenticate_user!, only: [ :create, :update, :destroy, :my_posts, :relevant_posts ]
     before_action :find_post, only: [ :show, :update, :destroy ]
-    before_action :find_posts, only: [ :my_posts ]
+    before_action :find_my_posts, only: [ :my_posts ]
+    before_action :find_relevant_posts, only: [ :my_relevant_posts ]
   
     def index
         posts = Post.order(created_at: :desc)
@@ -45,14 +46,26 @@ class Api::V1::PostsController < Api::ApplicationController
           )
     end
 
+    def relevant_posts
+        posts = @posts.order(created_at: :desc)
+        render(
+            json: posts,
+            each_serializer: PostCollectionSerializer
+          )
+    end
+
     private
     
     def find_post
     @post ||= Post.find params[:id]
     end
 
-    def find_posts
+    def find_my_posts
     @posts = Post.where(user: current_user)
+    end
+
+    def find_relevant_posts
+    @posts = PostRole.where(:role_id => current_user.profile.roles).joins(:post)
     end
 
     def post_params
