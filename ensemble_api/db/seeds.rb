@@ -11,7 +11,8 @@ super_user = User.create(
   first_name: "Jon",
   last_name: "Snow",
   email: "js@winterfell.gov",
-  password: PASSWORD
+  password: PASSWORD,
+
 )
 
 roleList = [
@@ -56,6 +57,16 @@ roleList.map{|r|
 
 roles = Role.all
 
+Profile.create(
+	user: super_user,
+	about: Faker::GreekPhilosophers.quote,
+	birth_date: Faker::Date.backward(365 * 100),
+	gender: "male",
+	)
+
+	super_user.profile.roles = roles.shuffle.slice(0, rand(roles.count / 2))
+	
+
 gender = [
 	"Female",
 	"Male",
@@ -75,11 +86,11 @@ gender = [
     first_name: first_name,
     last_name: last_name,
     email: "#{first_name.downcase}.#{last_name.downcase}@example.com",
-		password: PASSWORD,
+	password: PASSWORD,
 
 		profile_attributes: { 
 			about: Faker::GreekPhilosophers.quote,
-      birth_date: Faker::Date.backward(365 * 100),
+      		birth_date: Faker::Date.backward(365 * 100),
 			gender: gender.sample,
 			user: u
 		}
