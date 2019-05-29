@@ -22,7 +22,7 @@ export function NavBar(props) {
         </li>
         <li>
         <NavLink exact to="/posts">
-            All Posts
+            Posts
         </NavLink>
         </li>
         {currentUser ? (

@@ -2,14 +2,15 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Post } from "../api/post";
 
-export class PostIndexPage extends Component {
+export class RelevantPostsPage extends Component {
   state = {
     posts: []
   };
 
   componentDidMount() {
-    Post.all().then(posts => {
+    Post.relevant().then(posts => {
       this.setState({ posts });
+      console.log(posts)
     });
   }
 
@@ -17,7 +18,7 @@ export class PostIndexPage extends Component {
     return (
       <main className="Page">
         <h2>Posts</h2>
-        <Link to={`/relevant_posts`}>Filter by Roles on your Profile</Link>
+        <Link to={`/posts`}>Remove Filter</Link>
         <ul class="job-list"
           style={{
             listStyle: "none",
