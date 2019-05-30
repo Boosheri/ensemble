@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Post } from "../api/post";
+import { User } from "../api/user"
 
 export class RelevantPostsPage extends Component {
   state = {
@@ -15,11 +16,14 @@ export class RelevantPostsPage extends Component {
   }
 
   render() {
+    console.log(this.state.posts)
+
     return (
       <main className="Page">
         <h2>Posts</h2>
         <Link to={`/posts`}>Remove Filter</Link>
-        <ul class="job-list"
+
+        <ul className="job-list"
           style={{
             listStyle: "none",
             paddingLeft: 0
@@ -32,10 +36,22 @@ export class RelevantPostsPage extends Component {
 
               <Link to={`/posts/${post.id}`}>{post.title}</Link>{" "}
             </h3>
-            <p>Prodution Type: {post.production_type}</p>
-            <p>Gender: {post.gender}</p>
-            <p>Aged: {post.min_age} - {post.max_age}</p>
-            <p>Roles:</p> {post.roles.map(role => <p>{role.title}</p>)}
+            <p>
+              <span style={{fontWeight: "600"}}>Prodution Type: </span>
+              {post.production_type}
+            </p>
+            <p>
+              <span style={{fontWeight: "600"}}>Gender: </span>
+              {post.gender}
+            </p>
+            <p>
+              <span style={{fontWeight: "600"}}>Aged: </span>
+              {post.min_age} - {post.max_age}
+            </p>
+            <p>
+              <span style={{fontWeight: "600"}}>Roles:</span>
+              {post.roles.map((role, index) => <span> {role.title}{index < post.roles.length - 1 ? ',\u00A0' : '' }</span> )}
+            </p>
 
             </li>
           ))}
@@ -44,3 +60,5 @@ export class RelevantPostsPage extends Component {
     );
   }
 }
+
+

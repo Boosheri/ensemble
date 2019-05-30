@@ -12,6 +12,7 @@ import { SignUpPage } from "./SignUpPage"
 import { UserEditPage } from "./UserEditPage"
 import { User } from "../api/user"
 import { AuthRoute } from "./AuthRoute"
+import { RelevantPostsPage } from "./RelevantPostsPage"
 
 
 class App extends Component {
@@ -54,7 +55,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <header class="nav-header">
+          <header className="nav-header">
             <NavBar
               currentUser={this.state.currentUser}
               onSignOut={this.signOut}
@@ -82,6 +83,12 @@ class App extends Component {
               exact
               path="/my_posts"
               component={MyPostsPage} 
+              />             
+            <AuthRoute
+              isAuthenticated={!!this.state.currentUser}
+              exact
+              path="/relevant_posts"
+              component={RelevantPostsPage} 
               />             
             <AuthRoute
               isAuthenticated={!!this.state.currentUser}

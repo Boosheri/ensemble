@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Post } from "../api/post";
 import { User } from "../api/user";
+import { images } from "./Images";
 
 export class MyPostsPage extends Component {
   state = {
@@ -26,30 +27,43 @@ export class MyPostsPage extends Component {
     return (
       <main className="Page">
         <h2>My Posts</h2>
-        <ul class="job-list"
+        <ul className="job-list"
           style={{
             listStyle: "none",
             paddingLeft: 0
           }}
         >
           {this.state.posts.map(post => (
-           <li key={post.id} class="job-post">
+              
+            <li key={post.id} className="job-post">
             <h3>
+
               <Link to={`/posts/${post.id}`}>{post.title}</Link>{" "}
             </h3>
-            <p>Prodution Type: {post.production_type}</p>
-            <p>Gender: {post.gender}</p>
-            <p>Aged: {post.min_age} - {post.max_age}</p>
-            <p>Roles:</p> {post.roles.map(role => <p>{role.title}</p>)}
-
-              <div>
+            <p>
+              <span style={{fontWeight: "600"}}>Prodution Type: </span>
+              {post.production_type}
+            </p>
+            <p>
+              <span style={{fontWeight: "600"}}>Gender: </span>
+              {post.gender}
+            </p>
+            <p>
+              <span style={{fontWeight: "600"}}>Aged: </span>
+              {post.min_age} - {post.max_age}
+            </p>
+            <p>
+              <span style={{fontWeight: "600"}}>Roles:</span>
+              {post.roles.map((role, index) => <span> {role.title}{index < post.roles.length - 1 ? ',\u00A0' : '' }</span> )}
+            </p>
+            <div>
                 <button onClick={() => this.props.history.push(
                     `{/posts/${this.state.post.id}/edit}`)}>Edit</button>
                   <button onClick={() => this.deletePost()}>Delete</button>
                 </div>
             </li>
           ))}
-        </ul>
+        </ul>           
       </main>
     );
   }

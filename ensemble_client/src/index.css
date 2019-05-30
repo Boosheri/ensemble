@@ -109,9 +109,11 @@ margin-right: auto;
   color: white;
 }
 
+.welcome-image{
+  max-width: 100vh;
+}
 
-
-.film-logo{
+.logo{
   margin-top: .2em;
   height: 3em;
 }

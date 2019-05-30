@@ -4,7 +4,8 @@ import { Post } from "../api/post";
 
 export class PostIndexPage extends Component {
   state = {
-    posts: []
+    posts: [],
+    roles:[]
   };
 
   componentDidMount() {
@@ -19,7 +20,7 @@ export class PostIndexPage extends Component {
         <h2 style={{fontWeight: "600"}}>Posts</h2>
         {/* <h4 >Posts</h4> */}
         <Link to={`/relevant_posts`}>Filter by Roles on your Profile</Link>
-        <ul class="job-list"
+        <ul className="job-list"
           style={{
             listStyle: "none",
             paddingLeft: 0
@@ -27,7 +28,7 @@ export class PostIndexPage extends Component {
         >
           {this.state.posts.map(post => (
               
-            <li key={post.id} class="job-post">
+            <li key={post.id} className="job-post">
             <h3>
 
               <Link to={`/posts/${post.id}`}>{post.title}</Link>{" "}

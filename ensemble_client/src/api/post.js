@@ -6,6 +6,12 @@ export const Post = {
       credentials: "include"
     }).then(res => res.json());
   },
+
+  roles() {
+    return fetch(`${BASE_URL}/roles`, {
+      credentials: "include"
+    }).then(res => res.json());
+  },
   
   async one(id) {
     const res = await fetch(`${BASE_URL}/posts/${id}`, {

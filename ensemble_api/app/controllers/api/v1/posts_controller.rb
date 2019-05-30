@@ -8,10 +8,18 @@ class Api::V1::PostsController < Api::ApplicationController
     def index
         posts = Post.order(created_at: :desc)
 
-      render(
-        json: posts,
-        each_serializer: PostCollectionSerializer
-      )
+        render(
+            json: posts,
+            each_serializer: PostCollectionSerializer
+        )
+    end
+
+    def roles
+        roles = Role.order(created_at: :desc)
+
+        render(
+            json: roles,
+        )
     end
 
     def show
@@ -66,7 +74,12 @@ class Api::V1::PostsController < Api::ApplicationController
     end
 
     def find_relevant_posts
-    @posts = PostRole.where(:role_id => current_user.profile.roles).joins(:post)
+        postIds = []
+            relevantPosts = PostRole.where(:role_id => current_user.profile.roles).joins(:post).each do |post| postIds.push(post.post_id) end
+
+        
+        @posts = Post.where(:id => postIds.uniq) 
+        
     end
 
     def post_params

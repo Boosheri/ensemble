@@ -1,6 +1,7 @@
 class Role < ApplicationRecord
     has_many :profile_roles, dependent: :destroy
     has_many :post_roles, dependent: :destroy
+    has_many :posts, through: :post_roles
     
     validates(:title, presence: true, uniqueness: true)
 
