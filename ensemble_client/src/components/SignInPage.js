@@ -19,19 +19,24 @@ export function SignInPage(props) {
     });
   }
   return (
-    <main>
-      <h1>Sign In</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" />
-        </div>
-        <input type="submit" value="Sign In" />
-      </form>
+    <main className="Page">
+      <div className="session">
+        <h1>Sign In</h1>
+        <form className="sign-in" onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input type="email" name="email" id="email" />
+          </div>
+          <div>
+            <label htmlFor="password">Password</label>
+            <input type="password" name="password" id="password" />
+          </div>
+          <input type="submit" value="Sign In" />
+        </form>
+      </div>
+
     </main>
   );
+
+
 }

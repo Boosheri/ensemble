@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-// import logo from '../logo.svg';
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 import { PostIndexPage } from "./PostIndexPage"
 import { PostNewPage } from "./PostNewPage"

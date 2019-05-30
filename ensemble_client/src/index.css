@@ -9,7 +9,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  padding: 2em;
+  /* padding: 2em; */
 }
 
 
@@ -29,9 +29,14 @@ h1 {
   font-size: 3.052em;
 }
 
-h2 {font-size: 2.441em;}
+h2 {
+  font-size: 2.441em;}
 
-h3 {font-size: 1.953em;}
+h3 { 
+  margin-top: 0;
+  font-size: 1.903em;
+  margin-bottom: .8em;
+}
 
 h4 {font-size: 1.563em;}
 
@@ -40,43 +45,76 @@ h5 {font-size: 1.25em;}
 small, .text_small {font-size: 0.8em;}
 h1, h2, h3 {font-family: 'Alfa Slab One', cursive;}
 
-.nav-header{
-  min-height: 10vh;
-  background: white;
-  width: 100%;
+.NavBar{
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+
+  min-height: 2em;
+  background: black;
+  padding: .5em 1.5em;
 
 }
 .Page{
-  margin-top: 10vh;
-  background: lightblue;
+    margin-top: 10vh;
+    padding: 0em 8em;
+}
+
+.session{
+margin-left: auto;
+margin-right: auto;
+  
+  background: tan;
+
+}
+
+.sign-in{
+ display: inline-block;
 }
 
 .job-list {
+  margin-top: 10vh;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  
 
 }
-
 
 
 .job-post{
 
-  margin-bottom: 0.5em;
+  /* margin-bottom: 5em; */
   font-size: 1.25em;
   width: 100%;
-  min-height: 20em;
-  background-color: pink;
-  padding: 2em;
+  min-height: 5em;
+  border: 1px solid rgb(247, 247, 247);
+  border-radius: .5em;
+  background: rgb(250, 250, 250);
+  padding: 2em 2em 1em 2em;
   
 }
 
-.menu {display: flex;
-flex-direction: row;
-justify-content: space-between;
-width: 100%;}
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: .95em;
+  align-items: center;
 
-.menu li {font-size: 1.25rem;}
+}
+
+.menu li > a {
+  font-size: 1.25rem;
+  color: white;
+}
+
+
+
+.film-logo{
+  margin-top: .2em;
+  height: 3em;
+}
 
 
 
@@ -95,9 +133,9 @@ width: 100%;}
 /* DESKTOP LAST */
 @media (min-width: 1281px) {
 
-body {background: red;}
+
 .job-post{
-  width: 24%;
+  width: 80%;
   margin: 0.2em;
 }
 }

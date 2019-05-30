@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Post } from "../api/post";
 import { PostForm } from "./PostForm";
+import { FormErrors } from "./FormErrors";
 
 export class PostNewPage extends Component {
   state = {
@@ -28,7 +29,7 @@ export class PostNewPage extends Component {
       <main className="Page">
         <h1>Make a Post</h1>
 
-        {/* <FormErrors errors={this.state.errors} /> */}
+        <FormErrors errors={this.state.errors} />
 
         <PostForm
           errors={this.state.errors}

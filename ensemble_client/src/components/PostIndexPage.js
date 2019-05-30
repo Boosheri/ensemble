@@ -16,7 +16,8 @@ export class PostIndexPage extends Component {
   render() {
     return (
       <main className="Page">
-        <h2>Posts</h2>
+        <h2 style={{fontWeight: "600"}}>Posts</h2>
+        {/* <h4 >Posts</h4> */}
         <Link to={`/relevant_posts`}>Filter by Roles on your Profile</Link>
         <ul class="job-list"
           style={{
@@ -31,10 +32,22 @@ export class PostIndexPage extends Component {
 
               <Link to={`/posts/${post.id}`}>{post.title}</Link>{" "}
             </h3>
-            <p>Prodution Type: {post.production_type}</p>
-            <p>Gender: {post.gender}</p>
-            <p>Aged: {post.min_age} - {post.max_age}</p>
-            <p>Roles:</p> {post.roles.map(role => <p>{role.title}</p>)}
+            <p>
+              <span style={{fontWeight: "600"}}>Prodution Type: </span>
+              {post.production_type}
+            </p>
+            <p>
+              <span style={{fontWeight: "600"}}>Gender: </span>
+              {post.gender}
+            </p>
+            <p>
+              <span style={{fontWeight: "600"}}>Aged: </span>
+              {post.min_age} - {post.max_age}
+            </p>
+            <p>
+              <span style={{fontWeight: "600"}}>Roles:</span>
+              {post.roles.map((role, index) => <span> {role.title}{index < post.roles.length - 1 ? ',\u00A0' : '' }</span> )}
+            </p>
 
             </li>
           ))}

@@ -1,6 +1,7 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
 import { Session } from "../api/session"
+import film from '../film.jpg';
 
 export function NavBar(props) {
   const { currentUser, onSignOut } = props
@@ -14,12 +15,12 @@ export function NavBar(props) {
 
   return (
     <nav className="NavBar">
-    <ul class="menu">
-        <li>
+    
         <NavLink exact to="/">
-            Welcome
+        <img src={film} className="film-logo" alt="film" />
         </NavLink>
-        </li>
+        <section>
+    <ul class="menu">
         <li>
         <NavLink exact to="/posts">
             Posts
@@ -37,7 +38,6 @@ export function NavBar(props) {
             My Posts
         </NavLink>
         </li>
-
         <li>
             <a onClick={handleSignout}>Sign Out</a>
         </li>
@@ -62,6 +62,7 @@ export function NavBar(props) {
         </>
       )}
       </ul>
+      </section>
     </nav>
   )
 }
