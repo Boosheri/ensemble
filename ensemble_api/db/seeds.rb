@@ -113,7 +113,7 @@ productions =[
 	"Feature Film",
 	"Student Film",
 	"Music Video",
-	"Performnce Art",
+	"Performance Art",
 ]
 
 50.times do

@@ -15,6 +15,7 @@ class Api::V1::PostsController < Api::ApplicationController
     end
 
     def show
+        # @follow = @post.follow.find_by(user: current_user)
         render(
           json: @post,
         )
