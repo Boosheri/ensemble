@@ -12,7 +12,7 @@ export const Post = {
       credentials: "include"
     }).then(res => res.json());
   },
-  
+
   async one(id) {
     const res = await fetch(`${BASE_URL}/posts/${id}`, {
       credentials: "include"
@@ -21,31 +21,31 @@ export const Post = {
     return post;
   },
 
-   async user(id) {
+  async user(id) {
     return fetch(`${BASE_URL}/my_posts`, {
       credentials: "include",
       headers: {
         "Content-Type": "application/json"
-        },
-        }).then((res) => res.json());
-    },
+      }
+    }).then(res => res.json());
+  },
 
-   async relevant(id) {
+  async relevant(id) {
     return fetch(`${BASE_URL}/relevant_posts`, {
       credentials: "include",
       headers: {
         "Content-Type": "application/json"
-        },
-        }).then((res) => res.json());
-    },
+      }
+    }).then(res => res.json());
+  },
 
   current() {
     return fetch(`${BASE_URL}/users/current`, {
-      credentials: 'include',
+      credentials: "include",
       headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then((res) => res.json());
+        "Content-Type": "application/json"
+      }
+    }).then(res => res.json());
   },
 
   create(params) {

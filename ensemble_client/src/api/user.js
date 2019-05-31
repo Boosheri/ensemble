@@ -1,23 +1,23 @@
-import { BASE_URL } from '../config';
+import { BASE_URL } from "../config";
 
 export const User = {
   current() {
     return fetch(`${BASE_URL}/users/current`, {
-      credentials: 'include',
+      credentials: "include",
       headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then((res) => res.json());
+        "Content-Type": "application/json"
+      }
+    }).then(res => res.json());
   },
 
   create(params) {
     return fetch(`${BASE_URL}/users`, {
-      method: 'POST',
-      credentials: 'include',
+      method: "POST",
+      credentials: "include",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify({ user: params }),
-    }).then((res) => res.json());
-  },
+      body: JSON.stringify({ user: params })
+    }).then(res => res.json());
+  }
 };

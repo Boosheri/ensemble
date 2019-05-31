@@ -1,7 +1,7 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
 
-export const AuthRoute = (props) => {
+export const AuthRoute = props => {
   const { isAuthenticated, ...routeProps } = props;
   if (!isAuthenticated) {
     return <Redirect to="/sign_in" />;

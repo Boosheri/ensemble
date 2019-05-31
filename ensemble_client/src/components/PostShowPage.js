@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { PostDetails } from "./PostDetails";
 import { Post } from "../api/post";
 import { Link } from "react-router-dom";
+import { Follow } from "../api/follow";
 
 export class PostShowPage extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ export class PostShowPage extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
+    console.log(this.props);
 
     Post.one(id).then(post => {
       this.setState({
@@ -30,7 +32,6 @@ export class PostShowPage extends Component {
     }
   };
 
-
   render() {
     if (!this.state.post) {
       return (
@@ -44,11 +45,16 @@ export class PostShowPage extends Component {
       <main className="Page">
         <PostDetails {...this.state.post} />
         <div>
-        <button onClick={() => this.props.history.push(
-            `{/posts/${this.state.post.id}/edit}`)}>Edit</button>
+          <button onClick={() => console.log(Follow)} />
+          <button
+            onClick={() =>
+              this.props.history.push(`{/posts/${this.state.post.id}/edit}`)
+            }
+          >
+            Edit
+          </button>
           <button onClick={() => this.deletePost()}>Delete</button>
         </div>
-
       </main>
     );
   }

@@ -13,8 +13,8 @@ export const Session = {
   },
   destroy() {
     return fetch(`${BASE_URL}/session`, {
-      method: 'DELETE',
-      credentials: 'include',
-    }).then((res) => res.json());
-  },
+      method: "DELETE",
+      credentials: "include"
+    }).then(res => res.json());
+  }
 };

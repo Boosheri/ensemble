@@ -11,10 +11,6 @@ export class PostNewPage extends Component {
   createPost(params) {
     Post.create(params).then(data => {
       if (!data.errors) {
-        // The `history` prop is provide by the <Route>
-        // component. It has a bunch of methods to manipulate
-        // browser. You can use `push` to direct a user to any
-        // page in our app.
         this.props.history.push(`/posts/${data.id}`);
       } else {
         this.setState({

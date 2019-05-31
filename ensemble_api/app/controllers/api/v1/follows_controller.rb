@@ -10,14 +10,18 @@ class Api::V1::FollowsController < Api::ApplicationController
       end
         if follow.save
             render(
-                json: @post,
+                json: {status: 200},
             )
+        else
+          render(
+            json: {status: 400},
+          )
         end
     end
   
     def destroy
       post = Post.find params[:post_id]
-      follow = follow.find params[:id]
+      follow = post.follow.find params[:id]
       
       follow.destroy
   

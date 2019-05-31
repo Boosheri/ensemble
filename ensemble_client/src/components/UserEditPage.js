@@ -1,43 +1,43 @@
-import React, { Component } from "react"
-import { BASE_URL } from "../config"
+import React, { Component } from "react";
+import { BASE_URL } from "../config";
 
 export class UserEditPage extends Component {
   state = {
-    fileURLs: [],
-  }
+    fileURLs: []
+  };
 
   previewImage = event => {
-    const { currentTarget } = event
+    const { currentTarget } = event;
 
     this.setState({
       fileURLs: Array.from(currentTarget.files).map(file =>
         URL.createObjectURL(file)
-      ),
-    })
-  }
+      )
+    });
+  };
 
-	updateUser = event => {
-    event.preventDefault()
-    const { currentTarget: formNode } = event
-    const formData = new FormData(formNode)
+  updateUser = event => {
+    event.preventDefault();
+    const { currentTarget: formNode } = event;
+    const formData = new FormData(formNode);
 
     fetch(`${BASE_URL}/users/current`, {
       method: "PATCH",
       body: formData,
-      credentials: "include",
+      credentials: "include"
     })
       .then(r => r.json)
       .then(() => {
-        this.props.history.push("/")
+        this.props.history.push("/");
 
         if (typeof this.props.onUserUpdate === "function") {
-          this.props.onUserUpdate()
+          this.props.onUserUpdate();
         }
-      })
-	}
-	
+      });
+  };
+
   render() {
-    const { fileURLs } = this.state
+    const { fileURLs } = this.state;
 
     return (
       <main className="Page">
@@ -62,9 +62,6 @@ export class UserEditPage extends Component {
           <input type="Submit" value="Save Changes" />
         </form>
       </main>
-    )
+    );
   }
 }
-
-
-

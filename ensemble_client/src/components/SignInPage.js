@@ -34,9 +34,6 @@ export function SignInPage(props) {
           <input type="submit" value="Sign In" />
         </form>
       </div>
-
     </main>
   );
-
-
 }
