@@ -17,7 +17,7 @@ export class PostIndexPage extends Component {
   render() {
     return (
       <main className="Page">
-        <h2 style={{fontWeight: "600"}}>Posts</h2>
+        <h2 style={{fontWeight: "600"}}>All Posts</h2>
         {/* <h4 >Posts</h4> */}
         <Link to={`/relevant_posts`}>Filter by Roles on your Profile</Link>
         <ul className="job-list"

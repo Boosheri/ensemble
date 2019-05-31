@@ -14,13 +14,14 @@ export function NavBar(props) {
   }
 
   return (
+
     <nav className="NavBar">
-    
+
         <NavLink exact to="/">
-        <img src={logo} className="logo" alt="logo" />
+          <img src={logo} className="logo" alt="logo" />
         </NavLink>
         <section>
-    <ul className="menu">
+      <ul className="menu">
         <li>
         <NavLink exact to="/posts">
             Posts
@@ -39,12 +40,14 @@ export function NavBar(props) {
         </NavLink>
         </li>
         <li>
-            <a onClick={handleSignout}>Sign Out</a>
-        </li>
-        <li>
           <NavLink exact to={`/users/${currentUser.id}/edit`}>
             {currentUser.full_name}
           </NavLink>
+        </li>
+        <li>
+        <NavLink exact to="">
+            <a onClick={handleSignout}>Sign Out</a>
+        </NavLink>
         </li>
         </React.Fragment>
         ) : (

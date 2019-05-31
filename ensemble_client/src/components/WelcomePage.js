@@ -4,7 +4,7 @@ export class WelcomePage extends Component{
   constructor(props) {
     super(props);
     this.state =  {images,
-    selectedImage: "cam.jpg" }
+    selectedImage: images[2] }
     }
 
     componentDidMount() {
@@ -15,33 +15,19 @@ export class WelcomePage extends Component{
             return {
               selectedImage: this.state.images[1]
             };
-          } 
-          else if (this.state.selectedImage === this.state.images[1]) {
+          } else if (this.state.selectedImage === this.state.images[1]) {
             return {
               selectedImage: this.state.images[2]
             };
-          } 
-          else if (this.state.selectedImage === this.state.images[2]) {
+          } else if (this.state.selectedImage === this.state.images[2]) {
             return {
               selectedImage: this.state.images[3]
             };
-          } 
-          else if (this.state.selectedImage === this.state.images[3]) {
-            return {
-              selectedImage: this.state.images[4]
-            };
-          } 
-          else if (this.state.selectedImage === this.state.images[4]) {
-            return {
-              selectedImage: this.state.images[5]
-            };
-          } 
-          else if (this.state.selectedImage === this.state.images[5]) {
+          } else if (this.state.selectedImage === this.state.images[3]) {
             return {
               selectedImage: this.state.images[0]
             };
-          } 
-          else {
+          } else {
             return {
               selectedImage: this.state.images[0]
             };
@@ -52,13 +38,15 @@ export class WelcomePage extends Component{
       
     render() {
       return (
-      <main className="Page">
-        <h1>Ensemble</h1>
-        <p>Helping you assemble your dream ensemble!</p>
-        {/* <div className="welcome-image"> */}
-          <img className="welcome-image" src={this.state.selectedImage.src} />
-        {/* </div> */}
-      </main>
+        <container className="welcome">
+          <div className="welcome-image-div">
+            <div className="welcome-text-div">
+              <h1>Ensemble</h1>
+              <p style={{fontWeight: "400", fontSize: "1.2em"}}>Helping you assemble your dream ensemble!</p>
+            </div>
+            <img className="welcome-image" src={this.state.selectedImage.src} />
+          </div>
+        </container>
     );
   }
 }

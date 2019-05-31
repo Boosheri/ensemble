@@ -118,7 +118,7 @@ productions =[
 	"Student Film",
 	"Music Video",
 	"Performance Art",
-	"Radio Play"
+	"Radio Play",
 	"Audio Book"
 ]
 
@@ -126,8 +126,8 @@ productions =[
 	first_name = Faker::Name.first_name
 	last_name = Faker::Name.last_name
 	created_at = Faker::Date.backward(365 * 5)
-	min_age = rand(0..50)
-	max_age = min_age+10
+	min_age = rand(0..95)
+	max_age = min_age+5
 	p = Post.create(
 	title: Faker::Job.title,
 	body: Faker::Marketing.buzzwords,
