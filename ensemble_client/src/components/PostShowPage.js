@@ -42,7 +42,8 @@ export class PostShowPage extends Component {
     }
 
     return (
-      <main className="Page">
+      <main className="Page post-container">
+
         <PostDetails {...this.state.post} />
         <div>
           <button onClick={() => console.log(Follow)} />

@@ -1,7 +1,7 @@
-import cam1 from "../welcomeImages/cam.jpg";
-import cam2 from "../welcomeImages/cam2.jpg";
-import film from "../welcomeImages/film.jpg";
-import perform from "../welcomeImages/perform.jpg";
+import cam1 from "../welcome/cam.jpg";
+import cam2 from "../welcome/cam2.jpg";
+import film from "../welcome/film.jpg";
+import perform from "../welcome/perform.jpg";
 
 export const images = [
   { id: 1, src: cam1, title: "cam", description: "cam" },

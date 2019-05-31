@@ -20,7 +20,7 @@ export class RelevantPostsPage extends Component {
 
     return (
       <main className="Page">
-        <h2>Posts For You</h2>
+        <h2>Ensemble Job Listings For You</h2>
         <Link to={`/posts`}>Remove Filter</Link>
 
         <ul

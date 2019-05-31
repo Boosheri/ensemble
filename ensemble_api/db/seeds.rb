@@ -40,7 +40,7 @@ roleList = [
 	"Sound Designer",
 	"Dancer",
 	"Singer",
-	"Background Actors",
+	"Background Actor",
 	"Composer",
 	"Front of House Manager",
 	"Stage Manager",

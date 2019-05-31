@@ -44,7 +44,7 @@ export function NavBar(props) {
               </li>
               <li>
                 <NavLink exact to="">
-                  <a onClick={handleSignout}>Sign Out</a>
+                  <span onClick={handleSignout}>Sign Out</span>
                 </NavLink>
               </li>
             </React.Fragment>

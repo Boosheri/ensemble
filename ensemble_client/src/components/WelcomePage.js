@@ -49,6 +49,12 @@ export class WelcomePage extends Component {
           </div>
           <img className="welcome-image" src={image} />
         </div>
+        <div className="welcome-card">
+        <div className="welcome-card-text">
+        {/* <h4>Sidestep the Gatekeepers</h4>
+        <p>With performance based industries being so difficult to penetrate as a newcomer, finding work has always been a struggle in the arts. Ensemble is a tool built to remedy the gap in an industry which has made opportunities inaccessible to the outsider. Whether you are a casting director looking for new blood, a stage hand searching for work, or a director on the hunt for your next project, Ensemble is a bridge between creatives, creative communities, and the creative industry at large. </p> */}
+        </div>
+        </div>
       </div>
     );
   }

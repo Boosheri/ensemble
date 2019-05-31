@@ -22,7 +22,7 @@ export class PostNewPage extends Component {
 
   render() {
     return (
-      <main className="Page">
+      <main className="Page post-container">
         <h1>Make a Post</h1>
 
         <FormErrors errors={this.state.errors} />

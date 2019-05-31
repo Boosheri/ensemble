@@ -17,8 +17,8 @@ export class PostIndexPage extends Component {
   render() {
     return (
       <main className="Page">
-        <h2 style={{ fontWeight: "600" }}>All Posts</h2>
-        {/* <h4 >Posts</h4> */}
+        <h1>All Ensemble Job Listings</h1>
+        {/* <h4 style={{ fontWeight: "600" }}>Posts</h4> */}
         <Link to={`/relevant_posts`}>Filter by Roles on your Profile</Link>
         <ul
           className="job-list"
@@ -28,9 +28,10 @@ export class PostIndexPage extends Component {
           }}
         >
           {this.state.posts.map(post => (
-            <li key={post.id} className="job-post">
+            <li key={post.id} className="job-post-section">
+            <div className="job-post">
               <h3>
-                <Link to={`/posts/${post.id}`}>{post.title}</Link>{" "}
+                <Link className="job-title" to={`/posts/${post.id}`}>{post.title}</Link>{" "}
               </h3>
               <p>
                 <span style={{ fontWeight: "600" }}>Prodution Type: </span>
@@ -54,6 +55,7 @@ export class PostIndexPage extends Component {
                   </span>
                 ))}
               </p>
+            </div>
             </li>
           ))}
         </ul>

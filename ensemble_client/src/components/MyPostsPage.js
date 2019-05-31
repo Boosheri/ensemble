@@ -26,7 +26,7 @@ export class MyPostsPage extends Component {
   render() {
     return (
       <main className="Page">
-        <h2>My Posts</h2>
+        <h2>My Ensemble Job Listings</h2>
         <ul
           className="job-list"
           style={{
@@ -61,18 +61,6 @@ export class MyPostsPage extends Component {
                   </span>
                 ))}
               </p>
-              <div>
-                <button
-                  onClick={() =>
-                    this.props.history.push(
-                      `{/posts/${this.state.post.id}/edit}`
-                    )
-                  }
-                >
-                  Edit
-                </button>
-                <button onClick={() => this.deletePost()}>Delete</button>
-              </div>
             </li>
           ))}
         </ul>
