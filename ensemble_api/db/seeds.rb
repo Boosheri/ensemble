@@ -67,7 +67,6 @@ Profile.create(
 	)
 
 	super_user.profile.roles = roles.shuffle.slice(0, rand(roles.count / 2))
-	# super_user.profile.roles = roles.shuffle.slice(0, rand(1..3))
 
 
 gender = [
@@ -77,9 +76,16 @@ gender = [
 	"Male",
 	"Female",
 	"Male",
+	"Female",
+	"Male",
+	"Female",
+	"Male",
+	"Female",
+	"Male",
 	"Non Binary",
 	"Trans Female",
-	"Trans Male"
+	"Trans Male",
+	"Unspecified"
 ]
 
 20.times do
@@ -119,8 +125,11 @@ productions =[
 	"Music Video",
 	"Performance Art",
 	"Radio Play",
-	"Audio Book"
+	"Audio Book",
+	"TV"
 ]
+
+def include_any?(array) array.any? {|i| self.include? i} end
 
 20.times do
 	first_name = Faker::Name.first_name
@@ -129,22 +138,25 @@ productions =[
 	min_age = rand(0..90)
 	max_age = min_age+10
 	p = Post.create(
-	title: Faker::Job.title,
-	body: Faker::Marketing.buzzwords,
-	gender: gender.sample,
-	min_age: min_age,
-	max_age: max_age,
-	paid: Faker::Boolean.boolean,
-	union: Faker::Boolean.boolean,
-	production_type: productions.sample,
-	company: Faker::Company.name,
-	created_at: created_at,
-	contact_name: "#{first_name} #{last_name}",
-	contact_email: "#{first_name.downcase}.#{last_name.downcase}@example.com",
-	user_id: users.sample.id,
+		title: Faker::Job.title,
+		body: Faker::Marketing.buzzwords,
+		min_age: min_age,
+		max_age: max_age,
+		gender: gender.sample,
+		paid: Faker::Boolean.boolean,
+		union: Faker::Boolean.boolean,
+		production_type: productions.sample,
+		company: Faker::Company.name,
+		created_at: created_at,
+		contact_name: "#{first_name} #{last_name}",
+		contact_email: "#{first_name.downcase}.#{last_name.downcase}@example.com",
+		user_id: users.sample.id,
 	)
 	if p.valid?
 		p.roles = roles.shuffle.slice(0, rand((1..3)))
+		# if p.roles == "Actor"||"Background Actor"||"Singer"||"Voice Actor"||"Dancer"
+			# p.gender = gender.sample
+		# end
 		p.followers = users.shuffle.slice(0, rand(users.count))
 	end
 
