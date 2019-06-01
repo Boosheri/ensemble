@@ -43,10 +43,9 @@ export class PostShowPage extends Component {
 
     return (
       <main className="Page post-container">
-
         <PostDetails {...this.state.post} />
         <div>
-          <button onClick={() => console.log(Follow)} />
+          <button onClick={() => console.log(Follow)}>Follow</button>
           <button
             onClick={() =>
               this.props.history.push(`{/posts/${this.state.post.id}/edit}`)
