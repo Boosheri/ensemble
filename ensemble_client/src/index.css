@@ -2,7 +2,6 @@
 @import url("https://fonts.googleapis.com/css?family=Alfa+Slab+One|Merriweather|Montserrat|Raleway&display=swap");
 
 :root {
-
   --background-color: #dfe1e5;
   /* background-image: linear-gradient(to top, #e6ecf0 0%, #dfe1e5 100%); */
 }
@@ -82,22 +81,22 @@ button {
   /* border-radius: 4px; */
   background: transparent;
 }
-/* button:hover,
-button:active {
-  background:  #4e0307;
-  border: 1px solid transparent;
-  color: white;
-} */
+
+.Page {
+  padding: 0em 2em;
+  min-height: 95vh;
+  background: var(--background-color);
+}
 
 .logo {
   margin-top: 0.2em;
+  margin-right: 1em;
   height: 3em;
 }
 
 .nav-header {
   position: sticky;
   top: 0;
-  /* opacity: 0.9; */
 }
 
 .NavBar {
@@ -108,10 +107,9 @@ button:active {
   padding: 0.2em 1.5em;
 }
 
-.Page {
-  padding: 0em 1vw;
-  min-height: 95vh;
-  background: var(--background-color);
+.menu li > a {
+  font-size: 0.7em;
+  color: white;
 }
 
 .session {
@@ -133,7 +131,7 @@ button:active {
   margin-top: 10vh;
   display: flex;
   flex-wrap: wrap;
-  min-height: 60vh;
+  min-height: 50vh;
   align-items: center;
 }
 
@@ -143,9 +141,8 @@ button:active {
   width: 80%;
   max-height: 40vh;
   border: 1px solid transparent;
-  padding: 2em 2em 1em 2em;
+  padding: 0;
 }
-
 
 .job-post h3 {
   padding-top: 0;
@@ -154,6 +151,7 @@ button:active {
 .job-title {
   color: #8a0216;
 }
+
 a:link,
 a:visited,
 a:hover,
@@ -165,25 +163,21 @@ a:active {
   line-height: 1.4em;
   max-width: 40em;
 }
+
 .menu {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  padding-top: 0.95em;
+  padding-top: 1em;
   align-items: center;
-}
-
-.menu li > a {
-  font-size: 1.25rem;
-  color: white;
 }
 
 .welcome {
   text-align: center;
   color: white;
   max-width: 100%;
-  min-height: 100vh;
+  max-height: 100vh;
 }
 
 .welcome-image-div {
@@ -197,7 +191,7 @@ a:active {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(85, 84, 84, 0.068);
+  text-shadow: 2px 2px #000;
 }
 
 .welcome-image {
@@ -206,23 +200,38 @@ a:active {
 }
 
 .welcome-card {
-  background: rgb(247, 247, 247);
   color: rgb(29, 29, 29);
-  min-height: 50vh;
+  text-align: center;
 }
 
 .welcome-card-text {
+  min-height: 50%;
+}
+
+.welcome-card-text h4 {
+  color: #8a0216;
+  padding-top: 15vh;
+}
+
+.welcome-card-text p {
+  padding: 5vh;
+  line-height: 1.5em;
 }
 
 /* DESKTOP LAST */
 @media (min-width: 1024px) {
-
   .Page {
     padding: 0em 8vw;
   }
 
+  .welcome-card,
+  .welcome-card-text {
+    display: none;
+  }
+
   .job-post {
     width: 100%;
+    padding: 2em 2em 1em 2em;
     margin-bottom: 2em;
   }
 
@@ -231,7 +240,7 @@ a:active {
     border: 1px solid #4e0307;
     box-shadow: 5px 5px 0px 1px #4e0307;
   }
-  
+
   .post-container {
     background: url(../src/film-background.jpg);
     background-position: bottom right;
