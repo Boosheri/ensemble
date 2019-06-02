@@ -99,7 +99,7 @@ class App extends Component {
               isAuthenticated={!!this.state.currentUser}
               exact
               path="/posts/:id/edit"
-              render={PostEditPage}
+              component={PostEditPage}
             />
               {/* <AuthRoute
               isAuthenticated={!!this.state.currentUser}

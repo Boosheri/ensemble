@@ -49,7 +49,7 @@ export class PostEditPage extends Component {
       );
     }
 
-    return PostEditPage() (
+    return (
       <main className="Page">
         <h1>Edit Post</h1>
         <FormErrors errors={this.state.errors} />
