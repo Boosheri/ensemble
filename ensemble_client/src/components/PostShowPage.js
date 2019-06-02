@@ -15,7 +15,7 @@ export class PostShowPage extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    console.log(this.props);
+    // console.log(this.props);
 
     Post.one(id).then(post => {
       this.setState({
@@ -36,7 +36,7 @@ export class PostShowPage extends Component {
     if (!this.state.post) {
       return (
         <main className="Page">
-          <h2>Post doesn't exist!</h2>
+          <h2>Loading Post...</h2>
         </main>
       );
     }
@@ -48,7 +48,7 @@ export class PostShowPage extends Component {
           <button onClick={() => console.log(Follow)}>Follow</button>
           <button
             onClick={() =>
-              this.props.history.push(`{/posts/${this.state.post.id}/edit}`)
+              this.props.history.push(`/posts/${this.state.post.id}/edit`)
             }
           >
             Edit

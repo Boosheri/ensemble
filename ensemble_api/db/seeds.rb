@@ -76,16 +76,20 @@ gender = [
 	"Male",
 	"Female",
 	"Male",
-	"Female",
-	"Male",
-	"Female",
-	"Male",
-	"Female",
-	"Male",
 	"Non Binary",
+	"Female",
+	"Male",
 	"Trans Female",
+	"Female",
+	"Male",
 	"Trans Male",
+	"Female",
+	"Male",
 	"Unspecified"
+	"Female",
+	"Male",
+	"Female",
+	"Male",
 ]
 
 20.times do
@@ -154,9 +158,6 @@ def include_any?(array) array.any? {|i| self.include? i} end
 	)
 	if p.valid?
 		p.roles = roles.shuffle.slice(0, rand((1..3)))
-		# if p.roles == "Actor"||"Background Actor"||"Singer"||"Voice Actor"||"Dancer"
-			# p.gender = gender.sample
-		# end
 		p.followers = users.shuffle.slice(0, rand(users.count))
 	end
 

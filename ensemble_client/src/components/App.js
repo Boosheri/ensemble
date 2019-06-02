@@ -97,9 +97,21 @@ class App extends Component {
             />
             <AuthRoute
               isAuthenticated={!!this.state.currentUser}
+              exact
               path="/posts/:id/edit"
               render={PostEditPage}
             />
+              {/* <AuthRoute
+              isAuthenticated={!!this.state.currentUser}
+              exact
+              path="/posts/:id/edit"
+              render={routeProps => (
+                <PostEditPage
+                  {...routeProps}
+                  onPostUpdate={this.getCurrentUser}
+                />
+              )}
+            /> */}
             <AuthRoute
               isAuthenticated={!!this.state.currentUser}
               path="/users/:id/edit"

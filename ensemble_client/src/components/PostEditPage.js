@@ -28,7 +28,6 @@ export class PostEditPage extends Component {
           post,
           loading: false
         });
-        console.log(post);
       })
       .catch(err => {
         this.setState({ loading: false });
@@ -50,7 +49,7 @@ export class PostEditPage extends Component {
       );
     }
 
-    return (
+    return PostEditPage() (
       <main className="Page">
         <h1>Edit Post</h1>
         <FormErrors errors={this.state.errors} />
