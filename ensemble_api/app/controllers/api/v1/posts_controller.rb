@@ -86,6 +86,7 @@ class Api::V1::PostsController < Api::ApplicationController
     params.require(:post).permit(
         :id,
         :title, 
+        :body,
         :production_type,
         :gender,
         :min_age,

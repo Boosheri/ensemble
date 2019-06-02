@@ -12,7 +12,17 @@ export const PostForm = props => {
     if (typeof props.onSubmit === "function") {
       props.onSubmit({
         title: formData.get("title"),
-        body: formData.get("body")
+        body: formData.get("body"),
+        roles: formData.get("roles"),
+        gender: formData.get("gender"),
+        min_age: formData.get("min_age"),
+        max_age: formData.get("max_age"),
+        company: formData.get("company"),
+        production_type: formData.get("production_type"),
+        paid: formData.get("paid"),
+        union: formData.get("union"),
+        contact_name: formData.get("contact_name"),
+        contact_email: formData.get("contact_email")
       });
     }
   };
@@ -118,12 +128,6 @@ export const PostForm = props => {
           id="contact_email"
           defaultValue={data.contact_email}
         />
-      </div>
-
-      <div>
-        <label htmlFor="union">Union</label> <br />
-        <FormErrors forField="union" errors={errors} />
-        <input name="union" id="union" defaultValue={data.union} />
       </div>
 
       <div>
