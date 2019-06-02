@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Post } from "../api/post";
+// import { PostList } from "./PostList";
 
 export class PostIndexPage extends Component {
   state = {
@@ -59,6 +60,7 @@ export class PostIndexPage extends Component {
             </li>
           ))}
         </ul>
+        {/* <PostList {...this.state.posts} /> */}
       </main>
     );
   }

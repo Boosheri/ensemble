@@ -1,6 +1,4 @@
 import React from "react";
-import { User } from "../api/user";
-import { Follow } from "../api/follow";
 
 export function PostDetails(props) {
   return (
