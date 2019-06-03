@@ -34,8 +34,8 @@ export const PostForm = props => {
 
   return (
     <form onSubmit={handleSubmit}>
-    <div class="form">
-        <div class="half-form">
+    <div className="form">
+        <div className="half-form">
           <div>
             <label htmlFor="title">Title</label>
             <FormErrors forField="title" errors={errors} />
@@ -56,7 +56,7 @@ export const PostForm = props => {
           <br />
         </div>
 
-        <div class="half-form">
+        <div className="half-form">
         
           <div>
             <label htmlFor="roles">Roles</label> <br />
@@ -163,7 +163,7 @@ export const PostForm = props => {
     </div>
 
         <button type="submit" value="Submit">
-            Create
+            Save
           </button>
       </form>
   );

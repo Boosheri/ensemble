@@ -25,13 +25,12 @@ export class WelcomePage extends Component {
   getDisplayImage() {
     const { currentImageIndex } = this.state;
     const calcIndex = currentImageIndex % images.length;
-    console.log(calcIndex);
     return images[calcIndex] && images[calcIndex].src;
   }
 
   render() {
     const image = this.getDisplayImage();
-    console.log(image);
+    
     return (
       <div className="welcome">
         <div className="welcome-image-div">

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { PostDetails } from "./PostDetails";
 import { Post } from "../api/post";
-import { Link } from "react-router-dom";
 import { Follow } from "../api/follow";
 
 export class PostShowPage extends Component {
@@ -40,7 +39,7 @@ export class PostShowPage extends Component {
         </main>
       );
     }
-    console.log(this.state.post);
+    // console.log(this.state.post);
     return (
       <main className="Page post-container">
         <PostDetails {...this.state.post} />

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Post } from "../api/post";
-import { User } from "../api/user";
 
 export class RelevantPostsPage extends Component {
   state = {
@@ -16,7 +15,6 @@ export class RelevantPostsPage extends Component {
   }
 
   render() {
-    console.log(this.state.posts);
 
     return (
       <main className="Page">
@@ -51,13 +49,12 @@ export class RelevantPostsPage extends Component {
                   {post.min_age} - {post.max_age}
                 </p>
                 <p>
-                  <span style={{ fontWeight: "600" }}>Roles:</span>
-                  {post.roles.map((role, index) => (
-                    <span>
-                      {" "}
-                      {role.title}
-                      {index < post.roles.length - 1 ? ",\u00A0" : ""}
-                    </span>
+                <span style={{ fontWeight: "600" }}>Roles: </span>
+                {post.roles.map((role, index) => (
+                  <span key={index}>
+                    {role.title}
+                    {index < post.roles.length - 1 ? ",\u00A0" : ""}         
+                  </span>
                   ))}
                 </p>
               </div>

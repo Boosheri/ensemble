@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Post } from "../api/post";
-import { PostList } from "./PostList";
+// import { PostList } from "./PostList";
 
 export class PostIndexPage extends Component {
   state = {
@@ -47,12 +47,11 @@ export class PostIndexPage extends Component {
                 {post.min_age} - {post.max_age}
               </p>
               <p>
-                <span style={{ fontWeight: "600" }}>Roles:</span>
+                <span style={{ fontWeight: "600" }}>Roles: </span>
                 {post.roles.map((role, index) => (
-                  <span>
-                    {" "}
+                  <span key={index}>
                     {role.title}
-                    {index < post.roles.length - 1 ? ",\u00A0" : ""}
+                    {index < post.roles.length - 1 ? ",\u00A0" : ""}         
                   </span>
                 ))}
               </p>
