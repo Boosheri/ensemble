@@ -31,7 +31,6 @@ h5 {
 }
 
 h1 {
-  margin-top: 0;
   font-size: 3.052em;
 }
 
@@ -50,6 +49,7 @@ h4 {
 }
 
 h5 {
+  padding-top: 1.5em;
   font-size: 1.25em;
 }
 
@@ -72,7 +72,7 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
-  margin-right: 1em;
+  margin: 1em 1em 1em 0;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -108,19 +108,35 @@ button {
   color: white;
 }
 
-.session {
-  margin-left: auto;
-  margin-right: auto;
-
-  background: tan;
-}
-
 .sign-in {
   display: inline-block;
 }
 
-.post-container {
-  background: var(--background-color);
+form {
+  max-width: 700px;
+  text-align: center; 
+  margin: 1em auto;
+}
+
+.form{  
+  width: 100%;
+}
+
+.checkboxes{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+label{
+  margin-bottom: 2em;
+}
+
+input, textarea{
+  border:0; outline:0;
+  padding: .8em;
+  min-width:25em;
+  margin-top:1em;
+  border-radius: 4px;
 }
 
 .job-post-section {
@@ -254,4 +270,17 @@ a:active {
     background-size: contain;
     background-repeat: no-repeat;
   }
+
+  form {
+    max-width: 700px;
+    text-align: center; 
+    margin: 1em ;
+    margin-top: 5vh;
+  }
+
+  .half-form{
+    float:left;
+    width:50%;
+  }
+
 }
