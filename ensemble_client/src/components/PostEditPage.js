@@ -51,13 +51,9 @@ export class PostEditPage extends Component {
 
     return (
       <main className="Page">
-        <h1>Edit Post</h1>
+        <h1>Edit Ensemble Listing</h1>
         <FormErrors errors={this.state.errors} />
-        <PostForm
-          data={post}
-          errors={errors}
-          onSubmit={this.updatePost}
-        />
+        <PostForm data={post} errors={errors} onSubmit={this.updatePost} />
       </main>
     );
   }

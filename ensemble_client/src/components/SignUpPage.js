@@ -23,7 +23,7 @@ export function SignUpPage(props) {
   }
   return (
     <main className="Page">
-      <div className="session">
+      <div className="form">
         <h1>Sign Up</h1>
         <form onSubmit={handleSubmit}>
           <div>

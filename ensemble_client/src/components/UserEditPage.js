@@ -59,7 +59,9 @@ export class UserEditPage extends Component {
               name="user[headshot]"
             />
           </div>
-          <input type="Submit" value="Save Changes" />
+          <button type="Submit" value="Save Changes">
+            Save Changes
+          </button>
         </form>
       </main>
     );
