@@ -24,7 +24,8 @@ export class MyPostsPage extends Component {
   render() {
     return (
       <main className="Page">
-        <h1>My Ensemble Job Listings</h1>
+        <h2>My Ensemble Job Listings</h2>
+        
         <ul
           className="job-list"
           style={{

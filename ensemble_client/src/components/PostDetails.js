@@ -3,7 +3,7 @@ import React from "react";
 export function PostDetails(props) {
   return (
     <div>
-      <h2 className="job-title">{props.title}</h2>
+      <h3 className="job-title">{props.title}</h3>
       <h5 className="post-description"> {props.body} </h5>
 
       <p>

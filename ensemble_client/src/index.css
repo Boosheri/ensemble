@@ -1,5 +1,5 @@
 @import url(./reset.css);
-@import url("https://fonts.googleapis.com/css?family=Alfa+Slab+One|Merriweather|Montserrat|Raleway&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Poppins|Quicksand&display=swap');
 
 :root {
   --background-color: #dfe1e5;
@@ -40,8 +40,8 @@ h2 {
 
 h3 {
   margin-top: 0;
-  font-size: 1.903em;
-  margin-bottom: 0.8em;
+  font-size: 1.803em;
+  margin-bottom: 0.5em;
 }
 
 h4 {
@@ -49,8 +49,8 @@ h4 {
 }
 
 h5 {
-  padding-top: 1.5em;
-  font-size: 1.25em;
+  padding-top: 1em;
+  font-size: 1.15em;
 }
 
 small,
@@ -59,9 +59,19 @@ small,
 }
 
 h1,
-h2,
-h3 {
+h2{
   font-family: "Alfa Slab One";
+}
+
+
+h3,
+h4,
+h5{
+  font-family: 'Poppins', sans-serif;
+}
+
+p{
+  font-family: 'Quicksand'
 }
 
 button {
@@ -78,7 +88,7 @@ button {
 }
 
 .Page {
-  padding: 0em 2em;
+  padding: 0em 1em;
   min-height: 95vh;
   background: var(--background-color);
 }
@@ -143,14 +153,15 @@ input, textarea{
   margin-top: 10vh;
   display: flex;
   flex-wrap: wrap;
-  min-height: 50vh;
+  min-height: 40vh;
+  min-width: 90%;
   align-items: center;
 }
 
 .job-post {
   margin-bottom: 2em;
   font-size: 1.25em;
-  width: 80%;
+  width: 90%;
   max-height: 40vh;
   border: 1px solid transparent;
   padding: 0;
