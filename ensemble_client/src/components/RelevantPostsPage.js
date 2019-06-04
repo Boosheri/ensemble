@@ -15,11 +15,12 @@ export class RelevantPostsPage extends Component {
   }
 
   render() {
-
     return (
       <main className="Page">
         <h2>Ensemble Job Listings For You</h2>
-        <Link to={`/posts`}><p>Remove Filter</p></Link>
+        <Link to={`/posts`}>
+          <p>Remove Filter</p>
+        </Link>
 
         <ul
           className="job-list"
@@ -49,12 +50,12 @@ export class RelevantPostsPage extends Component {
                   {post.min_age} - {post.max_age}
                 </p>
                 <p>
-                <span style={{ fontWeight: "600" }}>Roles: </span>
-                {post.roles.map((role, index) => (
-                  <span key={index}>
-                    {role.title}
-                    {index < post.roles.length - 1 ? ",\u00A0" : ""}         
-                  </span>
+                  <span style={{ fontWeight: "600" }}>Roles: </span>
+                  {post.roles.map((role, index) => (
+                    <span key={index}>
+                      {role.title}
+                      {index < post.roles.length - 1 ? ",\u00A0" : ""}
+                    </span>
                   ))}
                 </p>
               </div>

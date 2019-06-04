@@ -46,9 +46,8 @@ export function PostDetails(props) {
         {props.contact_name}
       </p>
       <p>
-     <span style={{ fontWeight: "600" }}>Contact Email: </span> <a href="mailto:sample@email.com">
-     {props.contact_email}
-     </a>
+        <span style={{ fontWeight: "600" }}>Contact Email: </span>{" "}
+        <a href="mailto:sample@email.com">{props.contact_email}</a>
       </p>
 
       <p>

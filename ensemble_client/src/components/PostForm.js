@@ -34,7 +34,7 @@ export const PostForm = props => {
 
   return (
     <form onSubmit={handleSubmit}>
-    <div className="form">
+      <div className="form">
         <div className="half-form">
           <div>
             <label htmlFor="title">Title</label>
@@ -57,19 +57,18 @@ export const PostForm = props => {
         </div>
 
         <div className="half-form">
-       
- {/*           <div>
+          {/*           <div>
             <label htmlFor="roles">Roles</label> <br />
             <FormErrors forField="roles" errors={errors} />
             <input name="roles" id="roles" defaultValue={data.roles} />
           </div>
           <br /> */}
-        <div>
+          <div>
             <label htmlFor="gender">Gender</label> <br />
             <FormErrors forField="gender" errors={errors} />
             <input name="gender" id="gender" defaultValue={data.gender} />
           </div>
-        <br />
+          <br />
           <div>
             <label htmlFor="min_age">Min Age</label> <br />
             <FormErrors forField="min_age" errors={errors} />
@@ -158,13 +157,12 @@ export const PostForm = props => {
             />
           </div>
         </div>
-        <div>
-        </div>
-    </div>
+        <div />
+      </div>
 
-        <button type="submit" value="Submit">
-            Save
-          </button>
-      </form>
+      <button type="submit" value="Submit">
+        Save
+      </button>
+    </form>
   );
 };

@@ -25,7 +25,7 @@ export class MyPostsPage extends Component {
     return (
       <main className="Page">
         <h2>My Ensemble Job Listings</h2>
-        
+
         <ul
           className="job-list"
           style={{
@@ -54,12 +54,12 @@ export class MyPostsPage extends Component {
                   {post.min_age} - {post.max_age}
                 </p>
                 <p>
-                   <span style={{ fontWeight: "600" }}>Roles: </span>
-                {post.roles.map((role, index) => (
-                  <span key={index}>
-                    {role.title}
-                    {index < post.roles.length - 1 ? ",\u00A0" : ""}         
-                  </span>
+                  <span style={{ fontWeight: "600" }}>Roles: </span>
+                  {post.roles.map((role, index) => (
+                    <span key={index}>
+                      {role.title}
+                      {index < post.roles.length - 1 ? ",\u00A0" : ""}
+                    </span>
                   ))}
                 </p>
               </div>
