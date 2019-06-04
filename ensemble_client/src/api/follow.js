@@ -2,7 +2,7 @@ import { BASE_URL } from "../config";
 
 export const Follow = {
   create(params) {
-    return fetch(`${BASE_URL}/posts`, {
+    return fetch(`${BASE_URL}/follow`, {
       method: "POST",
       credentials: "include",
       headers: {

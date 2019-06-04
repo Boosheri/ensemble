@@ -14,14 +14,13 @@ export class PostShowPage extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    // console.log(this.props);
 
     Post.one(id).then(post => {
       this.setState({
         post
       });
     });
-  }
+  };
 
   deletePost = () => {
     if (window.confirm("Are you sure?")) {
@@ -30,6 +29,16 @@ export class PostShowPage extends Component {
       });
     }
   };
+
+  followPost = () => {
+    // const user = this.props.user
+    const post = this.state.post
+  console.log(post)
+    Follow.create((this.state.post.id))
+    .then(data => {
+      this.props.history.push(`/posts/${data.id}`);
+    });
+  }
 
   render() {
     if (!this.state.post) {
@@ -44,16 +53,24 @@ export class PostShowPage extends Component {
       <main className="Page post-container">
         <PostDetails {...this.state.post} />
         <div>
-          <button onClick={() => console.log(Follow)}>Follow</button>
+          <button
+          onClick={() =>
+          this.followPost(this.state.post.id)}>
+          Follow
+          </button>
 
           <button
             onClick={() =>
-              this.props.history.push(`/posts/${this.state.post.id}/edit`)
-            }
-          >
+              this.props.history.push(`/posts/${this.state.post.id}/edit`)}>
             Edit
           </button>
-          <button onClick={() => this.deletePost()}>Delete</button>
+
+          <button
+          onClick={() =>
+          this.deletePost()}>
+          Delete
+          </button>
+
         </div>
       </main>
     );

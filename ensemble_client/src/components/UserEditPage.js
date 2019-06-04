@@ -46,7 +46,7 @@ export class UserEditPage extends Component {
         {fileURLs.length > 0 ? (
           <div className="ImagePreviewList">
             {fileURLs.map(fileURL => (
-              <img key={fileURL} src={fileURL} />
+              <img key={fileURL} src={fileURL} alt="headshot"/>
             ))}
           </div>
         ) : null}

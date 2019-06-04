@@ -18,7 +18,7 @@ export const PostForm = props => {
       props.onSubmit({
         title: formData.get("title"),
         body: formData.get("body"),
-        roles: formData.get("roles"),
+        // roles: formData.get("roles"),
         gender: formData.get("gender"),
         min_age: formData.get("min_age"),
         max_age: formData.get("max_age"),
@@ -49,7 +49,7 @@ export const PostForm = props => {
               name="body"
               id="body"
               cols="30"
-              rows="40"
+              rows="37"
               defaultValue={data.body}
             />
           </div>
@@ -57,13 +57,13 @@ export const PostForm = props => {
         </div>
 
         <div className="half-form">
-        
-          <div>
+       
+ {/*           <div>
             <label htmlFor="roles">Roles</label> <br />
             <FormErrors forField="roles" errors={errors} />
             <input name="roles" id="roles" defaultValue={data.roles} />
           </div>
-          <br />
+          <br /> */}
         <div>
             <label htmlFor="gender">Gender</label> <br />
             <FormErrors forField="gender" errors={errors} />

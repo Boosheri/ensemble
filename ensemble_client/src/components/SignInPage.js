@@ -1,8 +1,9 @@
-import React from "react"; // 'react'
+import React from "react";
 import { Session } from "../api/session";
 
 export function SignInPage(props) {
   const { onSignIn } = props;
+
   function handleSubmit(event) {
     event.preventDefault();
     const { currentTarget } = event;
@@ -11,6 +12,7 @@ export function SignInPage(props) {
       email: fD.get("email"),
       password: fD.get("password")
     };
+
     Session.create(signInParams).then(response => {
       if (response.id) {
         onSignIn();
@@ -18,6 +20,7 @@ export function SignInPage(props) {
       }
     });
   }
+
   return (
     <main className="Page">
       <div className="form">

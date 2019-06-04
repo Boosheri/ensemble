@@ -30,7 +30,7 @@ export class WelcomePage extends Component {
 
   render() {
     const image = this.getDisplayImage();
-    
+
     return (
       <div className="welcome">
         <div className="welcome-image-div">
@@ -46,7 +46,7 @@ export class WelcomePage extends Component {
               Assemble your dream creative team for film and theatre.
             </p>
           </div>
-          <img className="welcome-image" src={image} />
+          <img className="welcome-image" src={image} alt="welcome banner"/>
         </div>
         <div className="welcome-card">
           <div className="welcome-card-text">

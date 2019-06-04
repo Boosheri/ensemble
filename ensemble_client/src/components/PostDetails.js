@@ -45,17 +45,12 @@ export function PostDetails(props) {
         <span style={{ fontWeight: "600" }}>Contact Name: </span>
         {props.contact_name}
       </p>
-
       <p>
-        <span style={{ fontWeight: "600" }}>Contact Email: </span>
-        {props.contact_email}
+     <span style={{ fontWeight: "600" }}>Contact Email: </span> <a href="mailto:sample@email.com">
+     {props.contact_email}
+     </a>
       </p>
 
-      {/* <p>Roles:</p> {props.roles.map(role => <p>{role.title}</p>)} */}
-
-      {/* <button onClick={() => props.follows.create()}>Follow</button> */}
-      {/* <br /> */}
-      {/* <p> By {props.user && props.user.full_name} </p> */}
       <p>
         {" "}
         <small>Published on: {props.created_at}</small>
