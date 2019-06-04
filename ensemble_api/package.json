@@ -1,5 +1,7 @@
 {
   "name": "ensemble_api",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "react-mailto": "^0.4.0"
+  }
 }

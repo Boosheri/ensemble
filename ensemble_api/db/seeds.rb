@@ -39,6 +39,7 @@ roleList = [
 	"Set Designer",
 	"Sound Designer",
 	"Dancer",
+	"Choreographer",
 	"Singer",
 	"Background Actor",
 	"Composer",
@@ -103,7 +104,7 @@ gender = [
 
 		profile_attributes: { 
 			about: Faker::GreekPhilosophers.quote,
-      		birth_date: Faker::Date.backward(365 * 100),
+			birth_date: Faker::Date.backward(365 * 100),
 			gender: gender.sample,
 			user: u
 		}
