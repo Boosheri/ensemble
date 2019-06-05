@@ -38,7 +38,7 @@ export function NavBar(props) {
                 </NavLink>
               </li>
               <li>
-                <NavLink exact to={`/users/${currentUser.id}/edit`}>
+                <NavLink exact to={`/users/${currentUser.id}`}>
                   {currentUser.full_name}
                 </NavLink>
               </li>

@@ -6,9 +6,14 @@ class UserSerializer < ActiveModel::Serializer
   :first_name, 
   :last_name, 
   :full_name,
+  :email,
+  # :skills,
+  # :language,
   :updated_at,
   :created_at,
   :profile,
+  # these do not work without breaking the login
+  # :roles,
   # :headshot
   )
 

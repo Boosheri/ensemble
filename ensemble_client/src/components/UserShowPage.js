@@ -15,12 +15,12 @@ export class UserShowPage extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
 
-    User.show(id).then(user => {
+    User.one(id).then(user => {
       this.setState({
         user
       });
     });
-  }
+  }  
 
   render() {
     if (!this.state.user) {
@@ -37,7 +37,7 @@ export class UserShowPage extends Component {
         <div>
           <button
             onClick={() =>
-              this.props.history.push(`/posts/${this.state.user.id}/edit`)
+              this.props.history.push(`/users/${this.state.user.id}/edit`)
             }
           >
             Edit

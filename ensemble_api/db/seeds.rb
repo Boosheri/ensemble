@@ -100,10 +100,10 @@ gender = [
     first_name: first_name,
     last_name: last_name,
     email: "#{first_name.downcase}.#{last_name.downcase}@example.com",
-	password: PASSWORD,
+		password: PASSWORD,
 
 		profile_attributes: { 
-			about: Faker::GreekPhilosophers.quote,
+			about: Faker::TvShows::GameOfThrones.quote,
 			birth_date: Faker::Date.backward(365 * 100),
 			gender: gender.sample,
 			user: u

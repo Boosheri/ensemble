@@ -10,6 +10,15 @@ export const User = {
     }).then(res => res.json());
   },
 
+  one(id) {
+    return fetch(`${BASE_URL}/users/${id}`, {
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(res => res.json());
+  },
+
   create(params) {
     return fetch(`${BASE_URL}/users`, {
       method: "POST",
