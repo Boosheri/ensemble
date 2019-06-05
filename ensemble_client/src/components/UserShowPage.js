@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { BASE_URL } from "../config";
 import { User } from "../api/user";
+import { UserDetails } from "./UserDetails";
 
-export class UserEditPage extends Component {
+export class UserShowPage extends Component {
   constructor(props) {
     super(props);
 
