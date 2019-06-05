@@ -120,7 +120,7 @@ users = User.all
 profiles = Profile.all
 profile_roles = ProfileRole.all
 
-productions =[
+productions = [
 	"Theatre",
 	"Musical",
 	"Dance",
@@ -131,7 +131,8 @@ productions =[
 	"Performance Art",
 	"Radio Play",
 	"Audio Book",
-	"TV"
+	"TV",
+	"Commercial"
 ]
 
 titles = [

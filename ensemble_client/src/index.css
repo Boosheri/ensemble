@@ -133,12 +133,6 @@ form {
   width: 100%;
 }
 
-.checkboxes{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  /* display: flex;
-  flex-direction: row; */
-}
 
 label{
   margin-bottom: 2em;
@@ -152,15 +146,24 @@ input, textarea{
   border-radius: 4px;
 }
 
+.checkboxes{
+  display: grid;
+  grid-template-columns: repeat(2, 50%); 
+}
+
+.checkboxes input{
+min-width: 0em;
+padding: 0em;
+}
+
 .headshot-container{
   display: flex; 
 }
 
 .headshot{
     background: url(../src/sansa.png);
-    background-position: top center;
-    width: 30vh;
-    height: 30vh;
+    width: 45vh;
+    height: 45vh;
     background-size: contain;
     border-radius: 4px;
 }
