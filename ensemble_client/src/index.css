@@ -155,8 +155,8 @@ textarea {
   padding: 0em;
 }
 
-.headshot-container {
-  display: flex;
+.headshot {
+  margin-top: 10vh;
 }
 
 .headshot {
@@ -273,6 +273,20 @@ a:active {
   .welcome-card,
   .welcome-card-text {
     display: none;
+  }
+
+  .headshot {
+    margin-top: 13vh;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .profile-info {
+    margin-top: 10vh;
+    margin-left: 5vw;
   }
 
   .job-post {

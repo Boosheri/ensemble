@@ -62,7 +62,6 @@ export class PostShowPage extends Component {
               >
                 Edit
               </button>
-
               <button onClick={() => this.deletePost()}>Delete</button>
             </span>
           ) : (
