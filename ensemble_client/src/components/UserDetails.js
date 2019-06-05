@@ -1,14 +1,15 @@
 import React from "react";
+// import sansa from "../sansa.png";
 
 export function UserDetails(props) {
   return (
     <div className="profile">
- 
+
+   
+      <h3 className="job-title">{props.full_name}</h3>
       <div className="headshot">
-      <img className="headshot-image" src={props.headshot} alt="headshot" />
       </div>
 
-      <h3 className="job-title">{props.full_name}</h3>
 
       <h5 className="post-description"> {props.profile.about} </h5>
 

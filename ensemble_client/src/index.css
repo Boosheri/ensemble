@@ -152,6 +152,19 @@ input, textarea{
   border-radius: 4px;
 }
 
+.headshot-container{
+  display: flex; 
+}
+
+.headshot{
+    background: url(../src/sansa.png);
+    background-position: top center;
+    width: 30vh;
+    height: 30vh;
+    background-size: contain;
+    border-radius: 4px;
+}
+
 .job-post-section {
   margin-top: 10vh;
   display: flex;
