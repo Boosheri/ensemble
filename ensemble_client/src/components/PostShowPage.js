@@ -32,7 +32,7 @@ export class PostShowPage extends Component {
   };
 
   followPost = () => {
-    const user = this.props.user
+    const user = this.props.user;
     const post = this.state.post;
     console.log(post + "----" + user);
     Follow.create(this.state.post.id).then(data => {
@@ -53,20 +53,26 @@ export class PostShowPage extends Component {
       <main className="Page post-container">
         <PostDetails {...this.state.post} />
         <div>
-        <FollowButton {...this.state.post} />
-          {/* <button onClick={() => this.followPost()}>
+          {this.props.user.id == this.state.post.user_id ? (
+            <span>
+              <button
+                onClick={() =>
+                  this.props.history.push(`/posts/${this.state.post.id}/edit`)
+                }
+              >
+                Edit
+              </button>
+
+              <button onClick={() => this.deletePost()}>Delete</button>
+            </span>
+          ) : (
+            <span>
+              <FollowButton {...this.state.post} />
+              {/* <button onClick={() => this.followPost()}>
             Follow
           </button> */}
-
-          <button
-            onClick={() =>
-              this.props.history.push(`/posts/${this.state.post.id}/edit`)
-            }
-          >
-            Edit
-          </button>
-
-          <button onClick={() => this.deletePost()}>Delete</button>
+            </span>
+          )}
         </div>
       </main>
     );

@@ -1,5 +1,5 @@
 @import url(./reset.css);
-@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Poppins|Quicksand&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Alfa+Slab+One|Poppins|Quicksand&display=swap");
 
 :root {
   --background-color: #dfe1e5;
@@ -50,8 +50,7 @@ h4 {
 
 h5 {
   padding-top: 1em;
-  font-size: 1.10em;
-  
+  font-size: 1.1em;
 }
 
 small,
@@ -60,19 +59,18 @@ small,
 }
 
 h1,
-h2{
+h2 {
   font-family: "Alfa Slab One";
 }
 
-
 h3,
 h4,
-h5{
-  font-family: 'Poppins', sans-serif;
+h5 {
+  font-family: "Poppins", sans-serif;
 }
 
-p{
-  font-family: 'Quicksand'
+p {
+  font-family: "Quicksand";
 }
 
 button {
@@ -125,47 +123,48 @@ button {
 
 form {
   max-width: 700px;
-  text-align: center; 
+  text-align: center;
   margin: 1em auto;
 }
 
-.form{  
+.form {
   width: 100%;
 }
 
-
-label{
+label {
   margin-bottom: 2em;
 }
 
-input, textarea{
-  border:0; outline:0;
-  padding: .7em;
-  min-width:25em;
-  margin-top:1em;
+input,
+textarea {
+  border: 0;
+  outline: 0;
+  padding: 0.7em;
+  min-width: 25em;
+  margin-top: 1em;
   border-radius: 4px;
 }
 
-.checkboxes{
+.checkboxes {
   display: grid;
-  grid-template-columns: repeat(2, 50%); 
+  grid-template-columns: repeat(2, 50%);
 }
 
-.checkboxes input{
-min-width: 0em;
-padding: 0em;
+.checkboxes input {
+  min-width: 0em;
+  padding: 0em;
 }
 
-.headshot-container{
-  display: flex; 
+.headshot-container {
+  display: flex;
 }
 
-.headshot{
-    background: url(../src/sansa.png);
-    width: 45vh;
-    height: 45vh;
-    background-size: contain;
-    border-radius: 4px;
+.headshot {
+  background: url(../src/sansa.png);
+  width: 45vh;
+  height: 45vh;
+  background-size: contain;
+  border-radius: 4px;
 }
 
 .job-post-section {
@@ -260,12 +259,6 @@ a:active {
   line-height: 1.5em;
 }
 
-
-
-
-
-
-
 /* DESKTOP LAST */
 @media (min-width: 1024px) {
   .Page {
@@ -276,7 +269,7 @@ a:active {
   button:active {
     background: #8a0216;
   }
-  
+
   .welcome-card,
   .welcome-card-text {
     display: none;
@@ -303,14 +296,13 @@ a:active {
 
   form {
     max-width: 700px;
-    text-align: center; 
-    margin: 1em ;
+    text-align: center;
+    margin: 1em;
     margin-top: 5vh;
   }
 
-  .half-form{
-    float:left;
-    width:50%;
+  .half-form {
+    float: left;
+    width: 50%;
   }
-
 }
