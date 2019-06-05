@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { BASE_URL } from "../config";
 import { User } from "../api/user";
 import { UserDetails } from "./UserDetails";
 

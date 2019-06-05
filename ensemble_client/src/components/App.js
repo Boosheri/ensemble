@@ -102,7 +102,7 @@ class App extends Component {
               path="/posts/:id/edit"
               component={PostEditPage}
             />
-            <AuthRoute
+            <Route
               exact
               path="/posts/:id"
               render={props => (

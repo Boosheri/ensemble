@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { PostDetails } from "./PostDetails";
+import { FollowButton } from "./FollowButton";
 import { Post } from "../api/post";
 import { Follow } from "../api/follow";
 
@@ -31,9 +32,9 @@ export class PostShowPage extends Component {
   };
 
   followPost = () => {
-    // const user = this.props.user
+    const user = this.props.user
     const post = this.state.post;
-    console.log(post);
+    console.log(post + "----" + user);
     Follow.create(this.state.post.id).then(data => {
       this.props.history.push(`/posts/${data.id}`);
     });
@@ -52,9 +53,10 @@ export class PostShowPage extends Component {
       <main className="Page post-container">
         <PostDetails {...this.state.post} />
         <div>
-          <button onClick={() => this.followPost(this.state.post.id)}>
+        <FollowButton {...this.state.post} />
+          {/* <button onClick={() => this.followPost()}>
             Follow
-          </button>
+          </button> */}
 
           <button
             onClick={() =>
