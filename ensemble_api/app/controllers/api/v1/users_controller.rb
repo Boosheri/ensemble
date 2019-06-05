@@ -1,9 +1,21 @@
 class Api::V1::UsersController < Api::ApplicationController
 	
-	before_action :authenticate_user!, only: [ :current, :update, ]
+	before_action :authenticate_user!, only: [ :show, :current, :update ]
 
 	def current
 		render json: current_user
+	end
+
+	def show
+		render(
+			if params[:id] == "current"
+				user = current_user
+			else
+				user = User.find params[:id]
+			end
+			user
+			json: user,
+		)
 	end
 
 	def create
@@ -12,7 +24,7 @@ class Api::V1::UsersController < Api::ApplicationController
 			session[:user_id] = user.id
 			render json: {id: user.id}
 		else
-			render json: render(
+			render(
 			json: { errors: user.errors.messages },
 			status: 422
 			)

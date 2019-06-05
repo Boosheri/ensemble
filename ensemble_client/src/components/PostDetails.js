@@ -4,6 +4,7 @@ export function PostDetails(props) {
   return (
     <div>
       <h3 className="job-title">{props.title}</h3>
+      
       <h5 className="post-description"> {props.body} </h5>
 
       <p>
@@ -45,17 +46,11 @@ export function PostDetails(props) {
         <span style={{ fontWeight: "600" }}>Contact Name: </span>
         {props.contact_name}
       </p>
-      <p>
-     <span style={{ fontWeight: "600" }}>Contact Email: </span> <a href="mailto:sample@email.com">
-     {props.contact_email}
-     </a>
-      </p>
 
       <p>
-        {" "}
-        <small>Published on: {props.created_at}</small>
+        <span style={{ fontWeight: "600" }}>Contact Email: </span>{" "}
+        <a href="mailto:sample@email.com">{props.contact_email}</a>
       </p>
     </div>
   );
 }
-// roles: formData.get("roles"),

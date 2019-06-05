@@ -77,7 +77,6 @@ class Api::V1::PostsController < Api::ApplicationController
         postIds = []
             relevantPosts = PostRole.where(:role_id => current_user.profile.roles).joins(:post).each do |post| postIds.push(post.post_id) end
 
-        
         @posts = Post.where(:id => postIds.uniq) 
         
     end

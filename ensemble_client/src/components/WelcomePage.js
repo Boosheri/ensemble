@@ -10,7 +10,6 @@ export class WelcomePage extends Component {
 
   componentDidMount() {
     this.interval = setInterval(() => {
-      console.log("Changing image to ", this.state.selectedImage);
       this.setState(prevState => {
         return {
           currentImageIndex: prevState.currentImageIndex + 1
@@ -35,7 +34,7 @@ export class WelcomePage extends Component {
       <div className="welcome">
         <div className="welcome-image-div">
           <div className="welcome-text-div">
-            <h1 style={{ fontSize: "5em" }}> Ensemble </h1>
+            <h1 style={{ fontSize: "4.5em" }}> Ensemble </h1>
             <p
               style={{
                 fontWeight: "400",
