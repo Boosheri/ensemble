@@ -7,8 +7,8 @@ Rails.application.routes.draw do
       get('/relevant_posts', to: 'posts#relevant_posts')
       resource :follow, only: [:create, :destroy]
       resource :session, only: [:create, :destroy]
-      resources :users, only: [:create, :update] do
-        resource :profile, only: [:create, :update]
+      resources :users, only: [:show, :create, :update] do
+        # resource :profile, only: [:create, :update]
         get :current, on: :collection
         
       end

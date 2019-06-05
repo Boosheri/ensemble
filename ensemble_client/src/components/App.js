@@ -10,6 +10,7 @@ import { NavBar } from "./NavBar";
 import { SignInPage } from "./SignInPage";
 import { SignUpPage } from "./SignUpPage";
 import { UserEditPage } from "./UserEditPage";
+import { UserShowPage } from "./UserShowPage";
 import { User } from "../api/user";
 import { AuthRoute } from "./AuthRoute";
 import { RelevantPostsPage } from "./RelevantPostsPage";
@@ -101,17 +102,13 @@ class App extends Component {
               path="/posts/:id/edit"
               component={PostEditPage}
             />
-            {/* <AuthRoute
-              isAuthenticated={!!this.state.currentUser}
+            <AuthRoute
               exact
-              path="/posts/:id/edit"
-              render={routeProps => (
-                <PostEditPage
-                  {...routeProps}
-                  onPostUpdate={this.getCurrentUser}
-                />
+              path="/posts/:id"
+              render={props => (
+                <PostShowPage {...props} user={this.state.currentUser} />
               )}
-            /> */}
+            />
             <AuthRoute
               isAuthenticated={!!this.state.currentUser}
               path="/users/:id/edit"
@@ -122,11 +119,12 @@ class App extends Component {
                 />
               )}
             />
-            <Route
+            <AuthRoute
+              isAuthenticated={!!this.state.currentUser}
               exact
-              path="/posts/:id"
+              path="/users/:id"
               render={props => (
-                <PostShowPage {...props} user={this.state.currentUser} />
+                <UserShowPage {...props} user={this.state.currentUser} />
               )}
             />
           </Switch>
