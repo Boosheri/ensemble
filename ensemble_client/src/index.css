@@ -177,7 +177,7 @@ textarea {
 }
 
 .job-post {
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
   font-size: 1.25em;
   width: 90%;
   max-height: 40vh;
@@ -251,7 +251,7 @@ a:active {
 
 .welcome-card-text h4 {
   color: #8a0216;
-  padding-top: 15vh;
+  padding-top: 13vh;
 }
 
 .welcome-card-text p {
