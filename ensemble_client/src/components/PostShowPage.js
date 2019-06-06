@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { PostDetails } from "./PostDetails";
-import { FollowButton } from "./FollowButton";
 import { Post } from "../api/post";
 import { Follow } from "../api/follow";
 
@@ -9,17 +8,20 @@ export class PostShowPage extends Component {
     super(props);
 
     this.state = {
-      post: null
+      post: null,
+      followed: false,
     };
   }
 
   componentDidMount() {
     const id = this.props.match.params.id;
-
     Post.one(id).then(post => {
       this.setState({
         post
       });
+      this.setState({
+        followed: false,
+      })
     });
   }
 
@@ -32,12 +34,23 @@ export class PostShowPage extends Component {
   };
 
   followPost = () => {
-    const user = this.props.user;
-    const post = this.state.post;
-    console.log(post + "----" + user);
-    Follow.create(this.state.post.id).then(data => {
-      this.props.history.push(`/posts/${data.id}`);
-    });
+    if (this.state.followed) {
+      // Follow.delete(this.state.post.id).then(data => {
+      //   console.log("unfollow>", data)
+      //   this.props.history.push(`/posts/${this.state.post.id}`);
+        this.setState({
+            followed: false
+          })
+        // });
+      } else {
+        // Follow.create(this.state.post.id).then(data => {
+        //   console.log("follow>", data)
+        // this.props.history.push(`/posts/${data.id}`);
+        this.setState({
+          followed: true
+        })
+      // });
+    }
   };
 
   render() {
@@ -48,12 +61,11 @@ export class PostShowPage extends Component {
         </main>
       );
     }
-    // console.log(this.state.post);
     return (
       <main className="Page post-container">
         <PostDetails {...this.state.post} />
         <div>
-          {this.props.user.id == this.state.post.user_id ? (
+          {this.props.user.id === this.state.post.user_id ? (
             <span>
               <button
                 onClick={() =>
@@ -66,10 +78,9 @@ export class PostShowPage extends Component {
             </span>
           ) : (
             <span>
-              <FollowButton {...this.state.post} />
-              {/* <button onClick={() => this.followPost()}>
-            Follow
-          </button> */}
+              <button onClick={() => this.followPost()}>
+                {this.state.followed ? "Unfollow" : "Follow"}
+              </button>
             </span>
           )}
         </div>

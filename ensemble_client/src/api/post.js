@@ -13,13 +13,6 @@ export const Post = {
     }).then(res => res.json());
   },
 
-  // async one(id) {
-  //   const res = await fetch(`${BASE_URL}/posts/${id}`, {
-  //     credentials: "include"
-  //   });
-  //   const post = await res.json();
-  //   return post;
-  // },
   async one(id) {
     return fetch(`${BASE_URL}/posts/${id}`, {
       credentials: "include"

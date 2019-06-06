@@ -39,8 +39,9 @@ export class UserShowPage extends Component {
               this.props.history.push(`/users/${this.state.user.id}/edit`)
             }
           >
-            Edit
+            Edit Profile
           </button>
+          <button>Followed Posts</button>
         </div>
       </main>
     );

@@ -10,7 +10,6 @@ export class RelevantPostsPage extends Component {
   componentDidMount() {
     Post.relevant().then(posts => {
       this.setState({ posts });
-      console.log(posts);
     });
   }
 

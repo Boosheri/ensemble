@@ -2,7 +2,7 @@ import { BASE_URL } from "../config";
 
 export const Follow = {
   create(params) {
-    return fetch(`${BASE_URL}/follow`, {
+    return fetch(`${BASE_URL}/posts/follow`, {
       method: "POST",
       credentials: "include",
       headers: {
@@ -13,9 +13,12 @@ export const Follow = {
   },
 
   delete(id) {
-    return fetch(`${BASE_URL}/posts/${id}`, {
+    return fetch(`${BASE_URL}/posts/follow`, {
       method: "DELETE",
-      credentials: "include"
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      },
     }).then(res => res.json());
   }
 };
