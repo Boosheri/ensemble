@@ -93,6 +93,8 @@ class Api::V1::PostsController < Api::ApplicationController
         :paid,
         :union,
         :roles,
+        :contact_name,
+        :contact_email,
         :created_at,
         :updated_at
         )

@@ -233,7 +233,7 @@ def include_any?(array) array.any? {|i| self.include? i} end
 		company: Faker::Company.name,
 		created_at: created_at,
 		contact_name: "#{first_name} #{last_name}",
-		contact_email: "#{first_name.downcase}.#{last_name.downcase}@example.com",
+		contact_email: "#{first_name.downcase}.#{last_name.downcase}@gmail.com",
 		user_id: users.sample.id,
 	)
 	if p.valid?

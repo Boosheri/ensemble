@@ -19,9 +19,8 @@ export class PostIndexPage extends Component {
     return (
       <main className="Page">
         <h2>All Ensemble Job Listings</h2>
-        {/* <h4 style={{ fontWeight: "600" }}>Posts</h4> */}
         <Link to={`/relevant_posts`}>
-          <p>Filter by Relevant Roles</p>
+          <p>Filter by: Roles on Your Profile</p>
         </Link>
         <ul
           className="job-list"

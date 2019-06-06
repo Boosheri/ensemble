@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { PostDetails } from "./PostDetails";
 import { Post } from "../api/post";
-import { Follow } from "../api/follow";
+// import { Follow } from "../api/follow";
 
 export class PostShowPage extends Component {
   constructor(props) {
