@@ -50,7 +50,7 @@ export class PostEditPage extends Component {
     }
 
     return (
-      <main className="Page">
+      <main className="Page post-container">
         <h1>Edit Ensemble Listing</h1>
         <FormErrors errors={this.state.errors} />
         <PostForm data={post} errors={errors} onSubmit={this.updatePost} />

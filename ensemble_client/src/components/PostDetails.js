@@ -7,10 +7,6 @@ export function PostDetails(props) {
 
       <h5 className="post-description"> {props.body} </h5>
       <br />
-      <p>
-        <span style={{ fontWeight: "600" }}>Prodution Type: </span>
-        {props.production_type}
-      </p>
 
       <p>
         <span style={{ fontWeight: "600" }}>Gender: </span>
