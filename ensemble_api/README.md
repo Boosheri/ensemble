@@ -3,10 +3,10 @@
 Ensemble API
 
 Create Database:
-rails db create
+# rails db create
 
 Seed Database:
-rails db seed
+# rails db seed
 
 Run Server:
-rails s
+# rails s
