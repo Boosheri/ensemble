@@ -99,3 +99,8 @@ yarn-debug.log*
 !/storage/.keep
 
 # End of https://www.gitignore.io/api/rails,macos
+
+# so that you are not storing your passwords/accounts to github! 
+/config/initializers/api_keys.rb
+
+ensemble.txt
